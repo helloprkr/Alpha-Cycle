@@ -1,0 +1,11 @@
+gaps:
+- created: ''
+  description: ''
+  id: 1
+  priority: high
+  related_components: []
+- created: '2026-01-04T01:07:03.754971'
+  description: 'Gap identified via indicator: ''open question'''
+  id: 2
+  priority: medium
+  related_components: []

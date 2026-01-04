@@ -1,0 +1,46 @@
+{
+  "text": "Research into large language models has undergone a paradigm shift over the last two years, moving from a primary focus on pre-training scaling laws to the \"inference-time scaling\" era. This transition is characterized by the development of models that can \"think\" longer before responding, often referred to as System 2 reasoning. The most significant trend is the discovery that increasing computational budget during inference\u2014through techniques like repeated sampling, search, and extended chain-of-thought processes\u2014can sometimes yield performance gains equivalent to scaling model parameters by orders of magnitude.\n\nKey developments include the formalization of \"Inference Scaling Laws,\" which provide empirical frameworks for how much test-time compute to allocate based on problem difficulty. There is also a major focus on verification-guided search, where process-based reward models (PRMs) evaluate intermediate reasoning steps rather than just the final answer. This has been popularized by models like OpenAI\u2019s o1 and DeepSeek-R1, which use reinforced reasoning to self-correct and explore multiple paths. Insights from adjacent fields, particularly diffusion models and classical search, are also being integrated to treat language generation as a stochastic process that can be refined through particle-based methods or classical backtracking algorithms.\n\nSignificant Recent Papers on Inference-Time Scaling and Reasoning\n\nScaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters\nThis foundational work from Google DeepMind demonstrates that for many tasks, allocating additional compute at test-time (through search or refinement) is more effective than using a larger model, providing a \"compute-optimal\" recipe for inference.\n\nScaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters\n (published 1 year ago)\n\nRecursive Language Models\nPublished just 4 days ago, this paper introduces a general inference strategy that allows LLMs to process arbitrarily long prompts and reasoning chains by treating inference-time scaling as a recursive process, pushing the boundaries of context and depth.\n\nRecursive Language Models\n (published 4 days ago)\n\nStop Overthinking: A Survey on Efficient Reasoning for Large Language Models\nA comprehensive survey that categorizes the \"Large Reasoning Model\" (LRM) landscape, including the architectures behind OpenAI o1 and DeepSeek-R1, while addressing the efficiency challenges of long-form chain-of-thought reasoning.\n\nStop Overthinking: A Survey on Efficient Reasoning for Large Language Models\n (published 9 months ago)\n\nInference Scaling Laws: An Empirical Analysis of Compute-Optimal Inference for Problem-Solving\nThis paper provides an empirical analysis of how performance scales with inference compute, identifying optimal configurations for different task complexities and model sizes, paralleling the original Chinchilla scaling laws.\n\nInference Scaling Laws: An Empirical Analysis of Compute-Optimal Inference for Problem-Solving with Language Models\n (published 1 year ago)\n\nIs PRM Necessary? Problem-Solving RL Implicitly Induces PRM Capability in LLMs\nAn influential study investigating whether explicit Process-based Reward Models are required for reasoning, finding that reinforcement learning on final outcomes can implicitly train a model to verify its own intermediate steps.\n\nIs PRM Necessary? Problem-Solving RL Implicitly Induces PRM Capability in LLMs\n (published 8 months ago)\n\nInference-Time Scaling for Diffusion Models beyond Scaling Denoising Steps\nOffering cross-disciplinary insights, this work explores how generative models in the visual domain can scale at inference time using search and verification, providing a blueprint that is being increasingly adapted for textual reasoning.\n\nInference-Time Scaling for Diffusion Models beyond Scaling Denoising Steps\n (published 1 year ago)\n\nLarge Language Monkeys: Scaling Inference Compute with Repeated Sampling\nThis paper explores the \"simple yet effective\" side of inference scaling, showing how massive parallel sampling (generating thousands of potential answers) combined with verification can significantly outperform traditional greedy decoding.\n\nLarge Language Monkeys: Scaling Inference Compute with Repeated Sampling\n (published 1 year ago)\n\nTowards Reasoning Era: A Survey of Long Chain-of-Thought for Reasoning Large Language Models\nA recent survey focused specifically on the \"Long CoT\" paradigm, explaining the mechanisms that allow models to generate thousands of internal reasoning tokens to solve high-difficulty mathematical and coding problems.\n\nTowards Reasoning Era: A Survey of Long Chain-of-Thought for Reasoning Large Language Models\n (published 10 months ago)",
+  "papers": [
+    {
+      "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
+      "url": "https://alphaxiv.org/abs/2408.03314",
+      "arxiv_id": "2408.03314"
+    },
+    {
+      "title": "Recursive Language Models",
+      "url": "https://alphaxiv.org/abs/2512.24601",
+      "arxiv_id": "2512.24601"
+    },
+    {
+      "title": "Stop Overthinking: A Survey on Efficient Reasoning for Large Language Models",
+      "url": "https://alphaxiv.org/abs/2503.16419",
+      "arxiv_id": "2503.16419"
+    },
+    {
+      "title": "Inference Scaling Laws: An Empirical Analysis of Compute-Optimal Inference for Problem-Solving with Language Models",
+      "url": "https://alphaxiv.org/abs/2408.00724",
+      "arxiv_id": "2408.00724"
+    },
+    {
+      "title": "Is PRM Necessary? Problem-Solving RL Implicitly Induces PRM Capability in LLMs",
+      "url": "https://alphaxiv.org/abs/2505.11227",
+      "arxiv_id": "2505.11227"
+    },
+    {
+      "title": "Inference-Time Scaling for Diffusion Models beyond Scaling Denoising Steps",
+      "url": "https://alphaxiv.org/abs/2501.09732",
+      "arxiv_id": "2501.09732"
+    },
+    {
+      "title": "Large Language Monkeys: Scaling Inference Compute with Repeated Sampling",
+      "url": "https://alphaxiv.org/abs/2407.21787",
+      "arxiv_id": "2407.21787"
+    },
+    {
+      "title": "Towards Reasoning Era: A Survey of Long Chain-of-Thought for Reasoning Large Language Models",
+      "url": "https://alphaxiv.org/abs/2503.09567",
+      "arxiv_id": "2503.09567"
+    }
+  ],
+  "timestamp": "2026-01-04T00:58:56.754097"
+}

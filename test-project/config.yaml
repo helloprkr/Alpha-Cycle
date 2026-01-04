@@ -1,0 +1,6 @@
+created: '2026-01-04T00:53:42.657564'
+project_name: test-project
+settings:
+  alpharxiv_timeout: 120
+  checkpoint_interval: 5
+  cycles_per_run: 20

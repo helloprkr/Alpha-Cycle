@@ -1,0 +1,236 @@
+{
+  "text": "The literature on inference-time scaling and chain-of-thought (CoT) reasoning identifies several critical bottlenecks that prevent current models from reaching their full potential. The most pressing open problems revolve around the efficiency of long-form \"thinking,\" the move toward verifiable rewards for non-objective tasks, and the potential for models to self-improve without external supervision. Researchers are shifting from simple outcome-based rewards to complex process-supervised reward models (PRMs) that evaluate every single logical step a model takes.\n\nMost Relevant Papers on Open Problems and Future Directions\n\nA Survey on Test-Time Scaling in Large Language Models: What, How, Where, and How Well?\n, published 9 months ago, explicitly outlines the major research gap in \"optimal compute allocation\"\u2014determining exactly when a model should stop \"thinking\" to avoid the diminishing returns of overthinking. \nStop Overthinking: A Survey on Efficient Reasoning for Large Language Models\n, also 9 months ago, identifies the \"efficiency-performance trade-off\" as a critical open problem, suggesting that current \"Large Reasoning Models\" are too computationally expensive for real-time applications. \nReasoning Beyond Language: A Comprehensive Survey on Latent Chain-of-Thought Reasoning\n, 7 months ago, points to \"latent reasoning\" as the most promising future direction to solve this efficiency crisis by moving the \"thinking\" process into the model's hidden states. \nThe Invisible Leash: Why RLVR May or May Not Escape Its Origin\n, 5 months ago, raises a significant concern about whether reinforcement learning with verifiable rewards (RLVR) can generalize beyond math and code to subjective human reasoning. \nAbsolute Zero: Reinforced Self-play Reasoning with Zero Data\n, 8 months ago, demonstrates the potential for \"self-play\" as a promising research direction, where models generate their own problems and solutions to improve without human-labeled datasets. \nStepWiser: Stepwise Generative Judges for Wiser Reasoning\n, 4 months ago, introduces the concept of \"generative judges\" as a solution to the verification problem, using the model itself to provide process-level supervision. \nOpenThoughts: Data Recipes for Reasoning Models\n, 7 months ago, discusses the \"data recipe\" problem, highlighting that we still don't fully understand the optimal mix of pre-training and reasoning-heavy post-training data. \nSpurious Rewards: Rethinking Training Signals in RLVR\n, 7 months ago, reveals a critical open problem where models learn to \"cheat\" the reward system by producing reasoning that looks correct to a verifier but is logically flawed. \nThinking Slow, Fast: Scaling Inference Compute with Distilled Reasoners\n, 10 months ago, explores the promising direction of \"reasoning distillation,\" where the analytical capabilities of a slow, thinking model are distilled into a faster model. \nInference-Time Scaling for Generalist Reward Modeling\n, 9 months ago, suggests that scaling the \"judge\" (the reward model) at inference time is just as important as scaling the \"thinker\" (the policy model).\n\nCritical Open Problems\nVerifiable Rewards for Subjective Tasks: Currently, the most successful reasoning models rely on tasks with a single, verifiable answer (math, code, logic). Developing mechanisms to reward \"good reasoning\" in fields like law, creative writing, or philosophy\u2014where the answer is subjective\u2014remains a major hurdle.\nThe Overthinking Problem: Models like OpenAI o1 often spend thousands of tokens \"thinking\" about simple questions. Identifying how to make models \"self-aware\" of problem difficulty so they can switch between \"System 1\" (fast) and \"System 2\" (slow) thinking automatically is a top priority.\nFaithfulness and Hallucination in CoT: It is still an open question whether a model\u2019s stated reasoning is actually why it chose an answer. Models can \"hallucinate\" a logical path to a wrong answer or even a wrong path to a right answer, making the reasoning trace a potential source of misinformation.\nData Scarcity for Reasoning: High-quality \"thinking\" data\u2014where every step of a complex problem is labeled\u2014is incredibly scarce. Research into synthetic data generation and self-improvement loops is critical to bypass this limitation.\nPromising Research Directions\nLatent Chain-of-Thought: Moving away from explicit token generation toward \"thinking\" in the model's hidden representation space. This could lead to models that reason just as deeply as current ones but are orders of magnitude faster.\nSelf-Correction and Self-Improvement Loops: Developing models that can truly identify and fix their own errors during the inference process. Current models often \"backtrack\" but frequently fail to find the right path after an error.\nProcess-Based Supervision (PRM): Instead of only rewarding the final answer, researchers are focusing on building models that can evaluate the \"logic\" of every step. This leads to much more robust reasoning and reduces the chance of \"right for the wrong reasons.\"\nDynamic Test-Time Scaling: Creating adaptive inference strategies where the model dynamically decides how many search paths to explore or how many reasoning steps to take based on real-time uncertainty metrics.",
+  "papers": [
+    {
+      "title": "A Survey on Test-Time Scaling in Large Language Models: What, How, Where, and How Well?",
+      "url": "https://alphaxiv.org/abs/2503.24235",
+      "arxiv_id": "2503.24235"
+    },
+    {
+      "title": "Stop Overthinking: A Survey on Efficient Reasoning for Large Language Models",
+      "url": "https://alphaxiv.org/abs/2503.16419",
+      "arxiv_id": "2503.16419"
+    },
+    {
+      "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
+      "url": "https://alphaxiv.org/abs/2408.03314",
+      "arxiv_id": "2408.03314"
+    },
+    {
+      "title": "Inference-Time Scaling for Generalist Reward Modeling",
+      "url": "https://alphaxiv.org/abs/2504.02495",
+      "arxiv_id": "2504.02495"
+    },
+    {
+      "title": "Demystifying Long Chain-of-Thought Reasoning in LLMs",
+      "url": "https://alphaxiv.org/abs/2502.03373",
+      "arxiv_id": "2502.03373"
+    },
+    {
+      "title": "Self-rewarding correction for mathematical reasoning",
+      "url": "https://alphaxiv.org/abs/2502.19613",
+      "arxiv_id": "2502.19613"
+    },
+    {
+      "title": "Search-R1: Training LLMs to Reason and Leverage Search Engines with Reinforcement Learning",
+      "url": "https://alphaxiv.org/abs/2503.09516",
+      "arxiv_id": "2503.09516"
+    },
+    {
+      "title": "Recursive Language Models",
+      "url": "https://alphaxiv.org/abs/2512.24601",
+      "arxiv_id": "2512.24601"
+    },
+    {
+      "title": "Inference Scaling Laws: An Empirical Analysis of Compute-Optimal Inference for Problem-Solving with Language Models",
+      "url": "https://alphaxiv.org/abs/2408.00724",
+      "arxiv_id": "2408.00724"
+    },
+    {
+      "title": "Towards Large Reasoning Models: A Survey of Reinforced Reasoning with Large Language Models",
+      "url": "https://alphaxiv.org/abs/2501.09686",
+      "arxiv_id": "2501.09686"
+    },
+    {
+      "title": "Harnessing the Reasoning Economy: A Survey of Efficient Reasoning for Large Language Models",
+      "url": "https://alphaxiv.org/abs/2503.24377",
+      "arxiv_id": "2503.24377"
+    },
+    {
+      "title": "A Survey on Test-Time Scaling in Large Language Models: What, How, Where, and How Well?",
+      "url": "https://alphaxiv.org/abs/2503.24235",
+      "arxiv_id": "2503.24235"
+    },
+    {
+      "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
+      "url": "https://alphaxiv.org/abs/2408.03314",
+      "arxiv_id": "2408.03314"
+    },
+    {
+      "title": "When More is Less: Understanding Chain-of-Thought Length in LLMs",
+      "url": "https://alphaxiv.org/abs/2502.07266",
+      "arxiv_id": "2502.07266"
+    },
+    {
+      "title": "Demystifying Long Chain-of-Thought Reasoning in LLMs",
+      "url": "https://alphaxiv.org/abs/2502.03373",
+      "arxiv_id": "2502.03373"
+    },
+    {
+      "title": "Reasoning Beyond Language: A Comprehensive Survey on Latent Chain-of-Thought Reasoning",
+      "url": "https://alphaxiv.org/abs/2505.16782",
+      "arxiv_id": "2505.16782"
+    },
+    {
+      "title": "Self-rewarding correction for mathematical reasoning",
+      "url": "https://alphaxiv.org/abs/2502.19613",
+      "arxiv_id": "2502.19613"
+    },
+    {
+      "title": "PAG: Multi-Turn Reinforced LLM Self-Correction with Policy as Generative Verifier",
+      "url": "https://alphaxiv.org/abs/2506.10406",
+      "arxiv_id": "2506.10406"
+    },
+    {
+      "title": "A Survey on Test-Time Scaling in Large Language Models: What, How, Where, and How Well?",
+      "url": "https://alphaxiv.org/abs/2503.24235",
+      "arxiv_id": "2503.24235"
+    },
+    {
+      "title": "Harnessing the Reasoning Economy: A Survey of Efficient Reasoning for Large Language Models",
+      "url": "https://alphaxiv.org/abs/2503.24377",
+      "arxiv_id": "2503.24377"
+    },
+    {
+      "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
+      "url": "https://alphaxiv.org/abs/2408.03314",
+      "arxiv_id": "2408.03314"
+    },
+    {
+      "title": "When More is Less: Understanding Chain-of-Thought Length in LLMs",
+      "url": "https://alphaxiv.org/abs/2502.07266",
+      "arxiv_id": "2502.07266"
+    },
+    {
+      "title": "Demystifying Long Chain-of-Thought Reasoning in LLMs",
+      "url": "https://alphaxiv.org/abs/2502.03373",
+      "arxiv_id": "2502.03373"
+    },
+    {
+      "title": "Self-rewarding correction for mathematical reasoning",
+      "url": "https://alphaxiv.org/abs/2502.19613",
+      "arxiv_id": "2502.19613"
+    },
+    {
+      "title": "Reasoning Beyond Language: A Comprehensive Survey on Latent Chain-of-Thought Reasoning",
+      "url": "https://alphaxiv.org/abs/2505.16782",
+      "arxiv_id": "2505.16782"
+    },
+    {
+      "title": "Inference Scaling Laws: An Empirical Analysis of Compute-Optimal Inference for Problem-Solving with Language Models",
+      "url": "https://alphaxiv.org/abs/2408.00724",
+      "arxiv_id": "2408.00724"
+    },
+    {
+      "title": "PAG: Multi-Turn Reinforced LLM Self-Correction with Policy as Generative Verifier",
+      "url": "https://alphaxiv.org/abs/2506.10406",
+      "arxiv_id": "2506.10406"
+    },
+    {
+      "title": "Towards Large Reasoning Models: A Survey of Reinforced Reasoning with Large Language Models",
+      "url": "https://alphaxiv.org/abs/2501.09686",
+      "arxiv_id": "2501.09686"
+    },
+    {
+      "title": "A Survey on Test-Time Scaling in Large Language Models: What, How, Where, and How Well?",
+      "url": "https://alphaxiv.org/abs/2503.24235",
+      "arxiv_id": "2503.24235"
+    },
+    {
+      "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
+      "url": "https://alphaxiv.org/abs/2408.03314",
+      "arxiv_id": "2408.03314"
+    },
+    {
+      "title": "Towards Large Reasoning Models: A Survey of Reinforced Reasoning with Large Language Models",
+      "url": "https://alphaxiv.org/abs/2501.09686",
+      "arxiv_id": "2501.09686"
+    },
+    {
+      "title": "When More is Less: Understanding Chain-of-Thought Length in LLMs",
+      "url": "https://alphaxiv.org/abs/2502.07266",
+      "arxiv_id": "2502.07266"
+    },
+    {
+      "title": "Measuring Faithfulness in Chain-of-Thought Reasoning",
+      "url": "https://alphaxiv.org/abs/2307.13702",
+      "arxiv_id": "2307.13702"
+    },
+    {
+      "title": "Reasoning Beyond Language: A Comprehensive Survey on Latent Chain-of-Thought Reasoning",
+      "url": "https://alphaxiv.org/abs/2505.16782",
+      "arxiv_id": "2505.16782"
+    },
+    {
+      "title": "Can Large Language Models Detect Errors in Long Chain-of-Thought Reasoning?",
+      "url": "https://alphaxiv.org/abs/2502.19361",
+      "arxiv_id": "2502.19361"
+    },
+    {
+      "title": "Inference Scaling Laws: An Empirical Analysis of Compute-Optimal Inference for Problem-Solving with Language Models",
+      "url": "https://alphaxiv.org/abs/2408.00724",
+      "arxiv_id": "2408.00724"
+    },
+    {
+      "title": "A Survey on Test-Time Scaling in Large Language Models: What, How, Where, and How Well?",
+      "url": "https://alphaxiv.org/abs/2503.24235",
+      "arxiv_id": "2503.24235"
+    },
+    {
+      "title": "Stop Overthinking: A Survey on Efficient Reasoning for Large Language Models",
+      "url": "https://alphaxiv.org/abs/2503.16419",
+      "arxiv_id": "2503.16419"
+    },
+    {
+      "title": "Reasoning Beyond Language: A Comprehensive Survey on Latent Chain-of-Thought Reasoning",
+      "url": "https://alphaxiv.org/abs/2505.16782",
+      "arxiv_id": "2505.16782"
+    },
+    {
+      "title": "The Invisible Leash: Why RLVR May or May Not Escape Its Origin",
+      "url": "https://alphaxiv.org/abs/2507.14843",
+      "arxiv_id": "2507.14843"
+    },
+    {
+      "title": "Absolute Zero: Reinforced Self-play Reasoning with Zero Data",
+      "url": "https://alphaxiv.org/abs/2505.03335",
+      "arxiv_id": "2505.03335"
+    },
+    {
+      "title": "StepWiser: Stepwise Generative Judges for Wiser Reasoning",
+      "url": "https://alphaxiv.org/abs/2508.19229",
+      "arxiv_id": "2508.19229"
+    },
+    {
+      "title": "OpenThoughts: Data Recipes for Reasoning Models",
+      "url": "https://alphaxiv.org/abs/2506.04178",
+      "arxiv_id": "2506.04178"
+    },
+    {
+      "title": "Spurious Rewards: Rethinking Training Signals in RLVR",
+      "url": "https://alphaxiv.org/abs/2506.10947",
+      "arxiv_id": "2506.10947"
+    },
+    {
+      "title": "Thinking Slow, Fast: Scaling Inference Compute with Distilled Reasoners",
+      "url": "https://alphaxiv.org/abs/2502.20339",
+      "arxiv_id": "2502.20339"
+    },
+    {
+      "title": "Inference-Time Scaling for Generalist Reward Modeling",
+      "url": "https://alphaxiv.org/abs/2504.02495",
+      "arxiv_id": "2504.02495"
+    }
+  ],
+  "timestamp": "2026-01-04T01:07:01.734784"
+}

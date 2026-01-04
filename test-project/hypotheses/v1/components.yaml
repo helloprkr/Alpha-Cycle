@@ -1,0 +1,6 @@
+# Decomposed verifiable claims
+components:
+  - id: 1
+    claim: ""
+    status: untested
+    evidence: []

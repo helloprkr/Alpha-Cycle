@@ -1,0 +1,56 @@
+{
+  "text": "The current landscape of large language model (LLM) research has undergone a fundamental shift from focusing purely on pre-training scaling laws (scaling data and parameters) toward test-time scaling laws, where model performance is improved by allocating more computation during the inference phase. This evolution is largely driven by the emergence of \"Large Reasoning Models\" like OpenAI o1 and DeepSeek-R1, which utilize long Chain-of-Thought (CoT) sequences and reinforcement learning to deliberate before answering. The research community is now deeply exploring how to optimally balance \"System 1\" (fast, intuitive) and \"System 2\" (slow, analytical) thinking in AI, with a particular focus on verifiable rewards, search algorithms like Monte Carlo Tree Search, and process-based verification.\n\nSignificant Recent Papers on Inference-Time Scaling and Reasoning\n\nA Survey on Test-Time Scaling in Large Language Models: What, How, Where, and How Well?\n, published 9 months ago, provides a comprehensive taxonomy of test-time scaling techniques, discussing how extra compute can be used for search, verification, and iterative refinement to surpass the capabilities of much larger models. \nStop Overthinking: A Survey on Efficient Reasoning for Large Language Models\n, also 9 months ago, explores the efficiency bottleneck of long reasoning chains and proposes methods to achieve high reasoning performance without excessive computational overhead. \nScaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters\n, from a year ago, is a foundational study from Google DeepMind demonstrating that for many complex tasks, increasing inference compute is a more efficient path to better results than further increasing model size. \nInference-Time Scaling for Generalist Reward Modeling\n, 9 months ago, discusses how to scale reward models at inference time to better guide the reasoning process toward correct and safe outcomes. \nDemystifying Long Chain-of-Thought Reasoning in LLMs\n, a year ago, investigates the internal mechanics of models that generate extremely long reasoning traces, highlighting how behaviors like backtracking and self-correction emerge. \nSelf-rewarding correction for mathematical reasoning\n, 10 months ago, introduces mechanisms where models evaluate their own intermediate steps, reducing the need for external verifiers during the reasoning process. \nSearch-R1: Training LLMs to Reason and Leverage Search Engines with Reinforcement Learning\n, 10 months ago, represents an adjacent insight by showing how reasoning models can be trained to use external tools like search engines as part of their deliberation process. \nRecursive Language Models\n, published just 4 days ago, proposes a strategy for scaling inference by allowing models to recursively process and refine long prompts and reasoning chains. \nInference Scaling Laws: An Empirical Analysis of Compute-Optimal Inference for Problem-Solving with Language Models\n, a year ago, provides the empirical data needed to determine how much compute should be allocated at test-time for different levels of problem difficulty. \nTowards Large Reasoning Models: A Survey of Reinforced Reasoning with Large Language Models\n, a year ago, summarizes the use of reinforcement learning to incentivize correct reasoning paths, a key technique behind the latest frontier reasoning models.\n\nResearch into inference-time scaling is increasingly drawing from classical AI search and decision-making fields. For instance, the use of Monte Carlo Tree Search (MCTS) and other structured exploration algorithms is becoming a standard way to manage the branching \"thought space\" during complex reasoning. This is often coupled with reinforcement learning with verifiable rewards (RLVR), where models are trained to maximize a reward that can be automatically checked, such as a math answer or code execution result. This adjacent influence from reinforcement learning and formal verification is bridging the gap between symbolic AI and neural networks, allowing LLMs to exhibit more rigorous and logical behavior. Furthermore, the concept of \"latent Chain-of-Thought,\" where the reasoning happens in the model's hidden states rather than through explicit text generation, is an emerging area that promises to reduce the latency of these powerful reasoning capabilities.",
+  "papers": [
+    {
+      "title": "A Survey on Test-Time Scaling in Large Language Models: What, How, Where, and How Well?",
+      "url": "https://alphaxiv.org/abs/2503.24235",
+      "arxiv_id": "2503.24235"
+    },
+    {
+      "title": "Stop Overthinking: A Survey on Efficient Reasoning for Large Language Models",
+      "url": "https://alphaxiv.org/abs/2503.16419",
+      "arxiv_id": "2503.16419"
+    },
+    {
+      "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
+      "url": "https://alphaxiv.org/abs/2408.03314",
+      "arxiv_id": "2408.03314"
+    },
+    {
+      "title": "Inference-Time Scaling for Generalist Reward Modeling",
+      "url": "https://alphaxiv.org/abs/2504.02495",
+      "arxiv_id": "2504.02495"
+    },
+    {
+      "title": "Demystifying Long Chain-of-Thought Reasoning in LLMs",
+      "url": "https://alphaxiv.org/abs/2502.03373",
+      "arxiv_id": "2502.03373"
+    },
+    {
+      "title": "Self-rewarding correction for mathematical reasoning",
+      "url": "https://alphaxiv.org/abs/2502.19613",
+      "arxiv_id": "2502.19613"
+    },
+    {
+      "title": "Search-R1: Training LLMs to Reason and Leverage Search Engines with Reinforcement Learning",
+      "url": "https://alphaxiv.org/abs/2503.09516",
+      "arxiv_id": "2503.09516"
+    },
+    {
+      "title": "Recursive Language Models",
+      "url": "https://alphaxiv.org/abs/2512.24601",
+      "arxiv_id": "2512.24601"
+    },
+    {
+      "title": "Inference Scaling Laws: An Empirical Analysis of Compute-Optimal Inference for Problem-Solving with Language Models",
+      "url": "https://alphaxiv.org/abs/2408.00724",
+      "arxiv_id": "2408.00724"
+    },
+    {
+      "title": "Towards Large Reasoning Models: A Survey of Reinforced Reasoning with Large Language Models",
+      "url": "https://alphaxiv.org/abs/2501.09686",
+      "arxiv_id": "2501.09686"
+    }
+  ],
+  "timestamp": "2026-01-04T01:04:37.902510"
+}

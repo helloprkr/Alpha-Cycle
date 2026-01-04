@@ -1,0 +1,16 @@
+pyproject.toml
+files/README.md
+files/SETUP_GUIDE.md
+files/SKILL.md
+files/__init__.py
+files/alpharxiv.py
+files/cli.py
+files/orchestrator.py
+files/project.py
+files/prompts.md
+research_verifier.egg-info/PKG-INFO
+research_verifier.egg-info/SOURCES.txt
+research_verifier.egg-info/dependency_links.txt
+research_verifier.egg-info/entry_points.txt
+research_verifier.egg-info/requires.txt
+research_verifier.egg-info/top_level.txt

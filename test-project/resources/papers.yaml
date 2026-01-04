@@ -1,0 +1,115 @@
+papers:
+- added: '2026-01-04T00:58:58.759800'
+  arxiv_id: '2408.03314'
+  title: Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling
+    Model Parameters
+  url: https://alphaxiv.org/abs/2408.03314
+- added: '2026-01-04T00:58:58.759833'
+  arxiv_id: '2512.24601'
+  title: Recursive Language Models
+  url: https://alphaxiv.org/abs/2512.24601
+- added: '2026-01-04T00:58:58.759839'
+  arxiv_id: '2503.16419'
+  title: 'Stop Overthinking: A Survey on Efficient Reasoning for Large Language Models'
+  url: https://alphaxiv.org/abs/2503.16419
+- added: '2026-01-04T00:58:58.759843'
+  arxiv_id: '2408.00724'
+  title: 'Inference Scaling Laws: An Empirical Analysis of Compute-Optimal Inference
+    for Problem-Solving with Language Models'
+  url: https://alphaxiv.org/abs/2408.00724
+- added: '2026-01-04T00:58:58.759847'
+  arxiv_id: '2505.11227'
+  title: Is PRM Necessary? Problem-Solving RL Implicitly Induces PRM Capability in
+    LLMs
+  url: https://alphaxiv.org/abs/2505.11227
+- added: '2026-01-04T00:58:58.759850'
+  arxiv_id: '2501.09732'
+  title: Inference-Time Scaling for Diffusion Models beyond Scaling Denoising Steps
+  url: https://alphaxiv.org/abs/2501.09732
+- added: '2026-01-04T00:58:58.759853'
+  arxiv_id: '2407.21787'
+  title: 'Large Language Monkeys: Scaling Inference Compute with Repeated Sampling'
+  url: https://alphaxiv.org/abs/2407.21787
+- added: '2026-01-04T00:58:58.759857'
+  arxiv_id: '2503.09567'
+  title: 'Towards Reasoning Era: A Survey of Long Chain-of-Thought for Reasoning Large
+    Language Models'
+  url: https://alphaxiv.org/abs/2503.09567
+- added: '2026-01-04T01:04:39.910496'
+  arxiv_id: '2503.24235'
+  title: 'A Survey on Test-Time Scaling in Large Language Models: What, How, Where,
+    and How Well?'
+  url: https://alphaxiv.org/abs/2503.24235
+- added: '2026-01-04T01:04:39.910523'
+  arxiv_id: '2504.02495'
+  title: Inference-Time Scaling for Generalist Reward Modeling
+  url: https://alphaxiv.org/abs/2504.02495
+- added: '2026-01-04T01:04:39.910527'
+  arxiv_id: '2502.03373'
+  title: Demystifying Long Chain-of-Thought Reasoning in LLMs
+  url: https://alphaxiv.org/abs/2502.03373
+- added: '2026-01-04T01:04:39.910530'
+  arxiv_id: '2502.19613'
+  title: Self-rewarding correction for mathematical reasoning
+  url: https://alphaxiv.org/abs/2502.19613
+- added: '2026-01-04T01:04:39.910533'
+  arxiv_id: '2503.09516'
+  title: 'Search-R1: Training LLMs to Reason and Leverage Search Engines with Reinforcement
+    Learning'
+  url: https://alphaxiv.org/abs/2503.09516
+- added: '2026-01-04T01:04:39.910536'
+  arxiv_id: '2501.09686'
+  title: 'Towards Large Reasoning Models: A Survey of Reinforced Reasoning with Large
+    Language Models'
+  url: https://alphaxiv.org/abs/2501.09686
+- added: '2026-01-04T01:05:30.857146'
+  arxiv_id: '2503.24377'
+  title: 'Harnessing the Reasoning Economy: A Survey of Efficient Reasoning for Large
+    Language Models'
+  url: https://alphaxiv.org/abs/2503.24377
+- added: '2026-01-04T01:05:30.857170'
+  arxiv_id: '2502.07266'
+  title: 'When More is Less: Understanding Chain-of-Thought Length in LLMs'
+  url: https://alphaxiv.org/abs/2502.07266
+- added: '2026-01-04T01:05:30.857174'
+  arxiv_id: '2505.16782'
+  title: 'Reasoning Beyond Language: A Comprehensive Survey on Latent Chain-of-Thought
+    Reasoning'
+  url: https://alphaxiv.org/abs/2505.16782
+- added: '2026-01-04T01:05:30.857177'
+  arxiv_id: '2506.10406'
+  title: 'PAG: Multi-Turn Reinforced LLM Self-Correction with Policy as Generative
+    Verifier'
+  url: https://alphaxiv.org/abs/2506.10406
+- added: '2026-01-04T01:07:03.745335'
+  arxiv_id: '2307.13702'
+  title: Measuring Faithfulness in Chain-of-Thought Reasoning
+  url: https://alphaxiv.org/abs/2307.13702
+- added: '2026-01-04T01:07:03.745350'
+  arxiv_id: '2502.19361'
+  title: Can Large Language Models Detect Errors in Long Chain-of-Thought Reasoning?
+  url: https://alphaxiv.org/abs/2502.19361
+- added: '2026-01-04T01:07:03.745364'
+  arxiv_id: '2507.14843'
+  title: 'The Invisible Leash: Why RLVR May or May Not Escape Its Origin'
+  url: https://alphaxiv.org/abs/2507.14843
+- added: '2026-01-04T01:07:03.745367'
+  arxiv_id: '2505.03335'
+  title: 'Absolute Zero: Reinforced Self-play Reasoning with Zero Data'
+  url: https://alphaxiv.org/abs/2505.03335
+- added: '2026-01-04T01:07:03.745368'
+  arxiv_id: '2508.19229'
+  title: 'StepWiser: Stepwise Generative Judges for Wiser Reasoning'
+  url: https://alphaxiv.org/abs/2508.19229
+- added: '2026-01-04T01:07:03.745370'
+  arxiv_id: '2506.04178'
+  title: 'OpenThoughts: Data Recipes for Reasoning Models'
+  url: https://alphaxiv.org/abs/2506.04178
+- added: '2026-01-04T01:07:03.745372'
+  arxiv_id: '2506.10947'
+  title: 'Spurious Rewards: Rethinking Training Signals in RLVR'
+  url: https://alphaxiv.org/abs/2506.10947
+- added: '2026-01-04T01:07:03.745374'
+  arxiv_id: '2502.20339'
+  title: 'Thinking Slow, Fast: Scaling Inference Compute with Distilled Reasoners'
+  url: https://alphaxiv.org/abs/2502.20339
