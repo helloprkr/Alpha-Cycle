@@ -129,3 +129,70 @@ papers:
   arxiv_id: '2501.02497'
   title: 'A Survey of Test-Time Compute: From Intuitive Inference to Deliberate Reasoning'
   url: https://alphaxiv.org/abs/2501.02497
+- added: '2026-01-04T10:50:11.852927'
+  arxiv_id: '2504.14047'
+  title: 'Think Deep, Think Fast: Investigating Efficiency of Verifier-free Inference-time-scaling
+    Methods'
+  url: https://alphaxiv.org/abs/2504.14047
+- added: '2026-01-04T10:50:11.852931'
+  arxiv_id: '2503.04378'
+  title: 'HelpSteer3: Human-Annotated Feedback and Edit Data to Empower Inference-Time
+    Scaling in Open-Ended General-Domain Tasks'
+  url: https://alphaxiv.org/abs/2503.04378
+- added: '2026-01-04T10:50:11.852933'
+  arxiv_id: '2504.07532'
+  title: AI-Slop to AI-Polish? Aligning Language Models through Edit-Based Writing
+    Rewards and Test-time Computation
+  url: https://alphaxiv.org/abs/2504.07532
+- added: '2026-01-04T10:50:11.852934'
+  arxiv_id: '2501.12895'
+  title: 'Test-Time Preference Optimization: On-the-Fly Alignment via Iterative Textual
+    Feedback'
+  url: https://alphaxiv.org/abs/2501.12895
+- added: '2026-01-04T10:50:11.852935'
+  arxiv_id: '2504.15253'
+  title: 'Evaluating Judges as Evaluators: The JETTS Benchmark of LLM-as-Judges as
+    Test-Time Scaling Evaluators'
+  url: https://alphaxiv.org/abs/2504.15253
+- added: '2026-01-04T10:50:11.852936'
+  arxiv_id: '2503.21878'
+  title: Is Best-of-N the Best of Them? Coverage, Scaling, and Optimality in Inference-Time
+    Alignment
+  url: https://alphaxiv.org/abs/2503.21878
+- added: '2026-01-04T10:50:11.852937'
+  arxiv_id: '2412.02674'
+  title: 'Mind the Gap: Examining the Self-Improvement Capabilities of Large Language
+    Models'
+  url: https://alphaxiv.org/abs/2412.02674
+- added: '2026-01-04T11:06:28.333242'
+  arxiv_id: '2502.07503'
+  title: 'Recursive Inference Scaling: A Winning Path to Scalable Inference in Language
+    and Multimodal Systems'
+  url: https://alphaxiv.org/abs/2502.07503
+- added: '2026-01-04T11:06:28.333245'
+  arxiv_id: '2502.05171'
+  title: 'Scaling up Test-Time Compute with Latent Reasoning: A Recurrent Depth Approach'
+  url: https://alphaxiv.org/abs/2502.05171
+- added: '2026-01-04T11:06:28.333247'
+  arxiv_id: '2507.10524'
+  title: 'Mixture-of-Recursions: Learning Dynamic Recursive Depths for Adaptive Token-Level
+    Computation'
+  url: https://alphaxiv.org/abs/2507.10524
+- added: '2026-01-04T11:06:28.333248'
+  arxiv_id: '2510.07358'
+  title: 'Encode, Think, Decode: Scaling test-time reasoning with recursive latent
+    thoughts'
+  url: https://alphaxiv.org/abs/2510.07358
+- added: '2026-01-04T11:06:28.333249'
+  arxiv_id: '2506.06009'
+  title: 'Unlocking Recursive Thinking of LLMs: Alignment via Refinement'
+  url: https://alphaxiv.org/abs/2506.06009
+- added: '2026-01-04T11:06:28.333250'
+  arxiv_id: '2510.25741'
+  title: Scaling Latent Reasoning via Looped Language Models
+  url: https://alphaxiv.org/abs/2510.25741
+- added: '2026-01-04T11:06:28.333251'
+  arxiv_id: '2511.08653'
+  title: Accelerating Training of Recursive Reasoning Models with Curriculum Guided
+    Adaptive Recursion
+  url: https://alphaxiv.org/abs/2511.08653

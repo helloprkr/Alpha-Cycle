@@ -179,6 +179,47 @@ project/
 └── results/                       # Test results
 ```
 
+## Constructing Alpharxiv-Optimized Questions
+
+When generating questions for `rv cycle`, use these patterns to maximize Alpharxiv's capabilities:
+
+### Always Include:
+- Request for "at least three parallel search queries"
+- Specific terminology variations to search
+- "Last two years" temporal filter
+- Request for "exact link" and "publication timeframe"
+
+### Phase-Specific Triggers:
+- **Expansive:** "adjacent fields like [X]", "high community engagement"
+- **Integrative:** "compare underlying assumptions", "where evidence converges or conflicts"
+- **Synthesis:** "trending papers", "contributions from [organization]", "characterize status as"
+
+### Example Question Building:
+
+**Bad (generic):**
+```
+rv cycle "What papers exist on inference scaling?"
+```
+
+**Good (optimized):**
+```
+rv cycle "Conduct a comprehensive literature search on inference-time scaling in LLMs using at least three parallel search queries to capture varying terminology (test-time compute, reasoning scaling, System 2 thinking) and work from adjacent fields like program synthesis. Identify the 5-10 most significant papers from the last two years, prioritizing high community engagement. For each, provide methodology summary, contribution, publication timeframe, and exact link." --phase expansive
+```
+
+### Key Trigger Phrases:
+
+| Capability | Trigger Phrases |
+|------------|-----------------|
+| Parallel searches | "using at least three parallel search queries" |
+| Adjacent fields | "work from adjacent fields like [X]" |
+| Temporal filter | "from the last two years", "publication timeframe" |
+| Trending | "high community engagement", "trending papers" |
+| Organization filter | "contributions from key organizations like [X]" |
+| Deep analysis | "compare their underlying assumptions" |
+| Link requirement | "exact link to the paper", "inline links" |
+
+See `files/prompts.md` for full templates and examples.
+
 ## Best Practices
 
 1. **Questions should reference previous findings** - "Based on the inference scaling literature..."
@@ -186,6 +227,7 @@ project/
 3. **Synthesis should be actual analysis** - Not placeholders like "[Claude Code: ...]"
 4. **Progressive narrowing** - Start broad (expansive), end specific (synthesis)
 5. **Track gaps explicitly** - The gap registry drives question generation
+6. **Use optimized prompts** - Structure questions to trigger Alpharxiv's parallel search, filtering, and analysis capabilities
 
 ## Troubleshooting
 

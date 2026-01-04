@@ -1,3 +1,12 @@
+Here's the comprehensive prompt for Claude Code:
+
+---
+
+## Update Prompts with Optimized Research Frameworks
+
+Replace the contents of `files/prompts.md` with the following. This combines the user's sophisticated research methodology with Alpharxiv's specific technical capabilities.
+
+```markdown
 # Research Verifier Prompts Reference
 
 Optimized frameworks combining rigorous academic methodology with Alpharxiv's parallel search, organization filtering, and deep-text analysis capabilities.
@@ -28,7 +37,7 @@ To ensure we are bridging domains with academic precision, conduct a structured 
 
 **Technical Keywords** (use at least three parallel search queries spanning):
 - [KEYWORD_DOMAIN_1]: [specific terms]
-- [KEYWORD_DOMAIN_2]: [specific terms]
+- [KEYWORD_DOMAIN_2]: [specific terms]  
 - [KEYWORD_DOMAIN_3]: [specific terms]
 - Adjacent fields: [ADJACENT_FIELD_1], [ADJACENT_FIELD_2]
 
@@ -68,7 +77,7 @@ Evidence that tropical (max-plus) algebraic structures naturally emerge in or ca
 We are investigating whether the softmax attention operation has a natural tropical limit (as temperature approaches zero) that connects transformer behavior to classical algorithms expressible in max-plus algebra. This would bridge neural network interpretability with algebraic combinatorics.
 
 **Organization Filter:**
-Prioritize contributions from DeepMind, Google Research, MIT CSAIL, and researchers working on neural algorithmic reasoning (Petar Velickovic, Charles Blundell).
+Prioritize contributions from DeepMind, Google Research, MIT CSAIL, and researchers working on neural algorithmic reasoning (Petar Veličković, Charles Blundell).
 
 Identify the 5-10 most significant papers from the last two years with high community engagement. For each paper, provide methodology summary, specific contribution to the bridging logic, publication timeframe, and exact link.
 
@@ -240,84 +249,21 @@ Include exact links and recency for all evidence.
 
 Instead of vague descriptions, use precise technical language:
 
-**Bad:** "How neural networks learn patterns"
-**Good:** "Log-Periodic Power Law Singularities (LPPLS) and 1/f noise signatures during the phase transitions of deep learning training dynamics"
+❌ "How neural networks learn patterns"
+✅ "Log-Periodic Power Law Singularities (LPPLS) and 1/f noise signatures during the phase transitions of deep learning training dynamics"
 
-**Bad:** "Symmetry in neural networks"
-**Good:** "Group equivariance with respect to Lie groups in weight space, specifically whether exceptional structures like E8 manifest in trained networks"
+❌ "Symmetry in neural networks"  
+✅ "Group equivariance with respect to Lie groups in weight space, specifically whether exceptional structures like E8 manifest in trained networks"
 
-**Bad:** "When reasoning helps"
-**Good:** "The relationship between inference-time token budget and task performance, specifically the phase transition from compute-bound to data-bound regimes"
-
----
-
-## Gap Identification Patterns
-
-Look for these indicators in Alpharxiv responses:
-
-**Explicit Gap Indicators:**
-- "open question"
-- "remains unclear"
-- "future work"
-- "not yet understood"
-- "gap in the literature"
-- "under-explored"
-- "requires further investigation"
-
-**Implicit Gap Indicators:**
-- Contradicting findings with no resolution
-- Missing empirical validation for theoretical claims
-- Methods applied in one domain but not another
-- Old papers with no recent follow-up
-- "To our knowledge, no work has..."
-
-**Gap Priority Scoring:**
-- HIGH: Directly blocks hypothesis validation
-- MEDIUM: Related to hypothesis but not blocking
-- LOW: Interesting but tangential
-
----
-
-## Phase Transition Logic
-
-```
-Default rotation: expansive -> integrative -> synthesis -> expansive...
-
-Override conditions:
-
--> Force EXPANSIVE when:
-  - Starting new hypothesis version
-  - Many new gaps identified
-  - Literature landscape unclear
-
--> Force INTEGRATIVE when:
-  - Abundant material but unclear connections
-  - Multiple contradictions surfaced
-  - Need to consolidate before synthesis
-
--> Force SYNTHESIS when:
-  - Approaching cycle budget (cycles 18-20)
-  - Evidence saturation (diminishing new findings)
-  - Decision point on hypothesis versioning
+❌ "When reasoning helps"
+✅ "The relationship between inference-time token budget and task performance, specifically the phase transition from compute-bound to data-bound regimes"
 ```
 
 ---
 
-## Hypothesis Versioning Triggers
-
-Review evidence and recommend:
-
-**A. MAINTAIN v{N}** - No significant change warranted
-- Continue cycles with current hypothesis
-
-**B. REFINE to v{N+1}** - Modifications needed
-- Specify which components need updating
-- Draft refined hypothesis statement
-
-**C. MAJOR REVISION to v{N+1}** - Fundamental restructuring
-- Identify which core assumptions are challenged
-- Propose alternative framing
-
-**D. FALSIFIED** - Evidence contradicts core predictions
-- Document the falsifying evidence
-- Propose alternative directions
+This combines:
+- Your rigorous "Technical Trace" methodology
+- Your introspective refinement framework  
+- Your synthesis assessment approach
+- Alpharxiv's specific toolset triggers
+- Concrete examples showing the templates in action

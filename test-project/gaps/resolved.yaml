@@ -14,3 +14,12 @@ resolved:
   resolution: 'Addressed in cycle 5 - found empirical evidence: 14x crossover point,
     Large Language Monkeys effect, difficulty-dependent frontiers'
   resolved: '2026-01-04T10:05:48.345377'
+- created: '2026-01-04T10:05:29.761951'
+  description: What happens for non-verifiable tasks where search cannot rank candidates?
+  id: 5
+  priority: medium
+  related_components: []
+  resolution: Addressed in cycle 6 - found 8 papers on non-verifiable task scaling
+    including verifier-free methods, edit-based rewards, LLM judges, and self-improvement
+    limits
+  resolved: '2026-01-04T10:50:47.997026'

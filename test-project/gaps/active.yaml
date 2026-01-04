@@ -9,14 +9,27 @@ gaps:
   id: 2
   priority: medium
   related_components: []
-- created: '2026-01-04T10:05:29.761951'
-  description: What happens for non-verifiable tasks where search cannot rank candidates?
-  id: 5
-  priority: medium
-  related_components: []
 - created: '2026-01-04T10:05:29.763926'
   description: How do crossover points shift as base model scale increases (1B to
     405B)?
   id: 6
+  priority: medium
+  related_components: []
+- created: '2026-01-04T10:50:39.718717'
+  description: 'Self-improvement ceiling: when does generation ability exceed critique
+    ability?'
+  id: 7
+  priority: medium
+  related_components: []
+- created: '2026-01-04T11:06:53.898415'
+  description: 'Compute-optimal comparison: recursive architectures vs. search-based
+    (MCTS/BoN)'
+  id: 8
+  priority: medium
+  related_components: []
+- created: '2026-01-04T11:06:53.901710'
+  description: 'Overthinking in recursive models: do they exhibit same failure modes
+    as CoT?'
+  id: 9
   priority: medium
   related_components: []

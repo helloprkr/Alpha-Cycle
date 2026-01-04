@@ -1,0 +1,46 @@
+{
+  "text": "Inference-time scaling has traditionally focused on verifiable tasks like mathematics and coding where a hard verifier (e.g., a compiler or ground-truth answer) can guide the search. However, recent research has shifted toward non-verifiable, open-ended, and subjective tasks by leveraging reward models, LLM-as-a-judge, and self-critique mechanisms.\n\nThe following eight papers represent the most significant advancements in this area over the last two years, prioritizing high-engagement work that addresses the challenges of scaling compute in domains without objective ground truth.\n\nKey Literature on Inference-Time Scaling for Non-Verifiable Tasks\n\nScaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters This foundational paper explores the trade-offs between scaling model size and scaling test-time compute. The authors investigate two primary mechanisms: searching against a learned verifier (Best-of-N) and iteratively refining the model's own distribution. Their findings suggest that for tasks where a verifier can be trained (even if it's a proxy for human preference), scaling compute at inference can often yield performance gains equivalent to using a significantly larger base model. Published a year ago: \nScaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters\n\nThink Deep, Think Fast: Investigating Efficiency of Verifier-free Inference-time-scaling Methods This work specifically addresses the \"verifier-free\" regime, where no external reward model or ground truth is available. The researchers evaluate methods such as repeated sampling, chain-of-thought expansion, and self-refinement on subjective and creative tasks. The study identifies optimal compute allocation strategies when the model must act as its own evaluator, providing a benchmark for self-improving agents in open-ended domains. Published 9 months ago: \nThink Deep, Think Fast: Investigating Efficiency of Verifier-free Inference-time-scaling Methods\n\nHelpSteer3: Human-Annotated Feedback and Edit Data to Empower Inference-Time Scaling in Open-Ended General-Domain Tasks NVIDIA introduces a large-scale dataset and methodology specifically designed to bridge the gap between verifiable reasoning and general-domain tasks. They propose using high-quality human edit data to train reward models that can guide inference-time search for creative writing and open-ended chat. This contribution is critical for scaling inference in tasks where \"correctness\" is a matter of nuance and stylistic preference rather than binary logic. Published 10 months ago: \nHelpSteer3: Human-Annotated Feedback and Edit Data to Empower Inference-Time Scaling in Open-Ended General-Domain Tasks\n\nAI-Slop to AI-Polish? Aligning Language Models through Edit-Based Writing Rewards and Test-time Computation Focusing on creative tasks, this paper presents an edit-based reward modeling framework to improve the quality of long-form writing during inference. By using test-time computation to explore multiple editing paths and selecting the most \"polished\" result based on learned writing preferences, the authors demonstrate that inference scaling can significantly reduce the generic \"AI-slop\" often found in single-pass generations. Published 9 months ago: \nAI-Slop to AI-Polish? Aligning Language Models through Edit-Based Writing Rewards and Test-time Computation\n\nTest-Time Preference Optimization: On-the-Fly Alignment via Iterative Textual Feedback This research introduces a method for on-the-fly alignment where the model optimizes its response based on iterative textual feedback during a single inference pass. Instead of relying on a static reward model, it uses a preference-learning approach to refine outputs for tasks like summarization and creative persona adoption. This methodology allows for a dynamic form of inference scaling that adapts to the specific constraints of a non-verifiable prompt. Published a year ago: \nTest-Time Preference Optimization: On-the-Fly Alignment via Iterative Textual Feedback\n\nEvaluating Judges as Evaluators: The JETTS Benchmark of LLM-as-Judges as Test-Time Scaling Evaluators Since non-verifiable tasks rely heavily on \"judges\" to select the best output among candidates, this paper investigates the reliability of these judges. It proposes the JETTS benchmark to evaluate how well different LLM-as-a-judge configurations perform when used to scale test-time compute. Their methodology highlights the potential pitfalls of \"self-judging\" and identifies the most robust judge architectures for subjective scaling. Published 8 months ago: \nEvaluating Judges as Evaluators: The JETTS Benchmark of LLM-as-Judges as Test-Time Scaling Evaluators\n\nIs Best-of-N the Best of Them? Coverage, Scaling, and Optimality in Inference-Time Alignment Best-of-N sampling is the most common technique for scaling compute in non-verifiable domains, but this paper provides a rigorous mathematical analysis of its limitations. The authors explore how the diversity of samples and the quality of the proxy reward model impact the overall scaling law. They propose improved sampling strategies that provide better coverage of the preferred output space in subjective alignment tasks. Published 9 months ago: \nIs Best-of-N the Best of Them? Coverage, Scaling, and Optimality in Inference-Time Alignment\n\nMind the Gap: Examining the Self-Improvement Capabilities of Large Language Models This study examines whether LLMs can effectively verify and improve their own performance without external signal. By exploring the \"gap\" between a model's ability to generate and its ability to critique, the authors provide insights into how much inference-time compute can be meaningfully scaled before the model's self-evaluation bottlenecks its progress. This is particularly relevant for high-level creative tasks where external feedback is unavailable. Published a year ago: \nMind the Gap: Examining the Self-Improvement Capabilities of Large Language Models",
+  "papers": [
+    {
+      "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
+      "url": "https://alphaxiv.org/abs/2408.03314",
+      "arxiv_id": "2408.03314"
+    },
+    {
+      "title": "Think Deep, Think Fast: Investigating Efficiency of Verifier-free Inference-time-scaling Methods",
+      "url": "https://alphaxiv.org/abs/2504.14047",
+      "arxiv_id": "2504.14047"
+    },
+    {
+      "title": "HelpSteer3: Human-Annotated Feedback and Edit Data to Empower Inference-Time Scaling in Open-Ended General-Domain Tasks",
+      "url": "https://alphaxiv.org/abs/2503.04378",
+      "arxiv_id": "2503.04378"
+    },
+    {
+      "title": "AI-Slop to AI-Polish? Aligning Language Models through Edit-Based Writing Rewards and Test-time Computation",
+      "url": "https://alphaxiv.org/abs/2504.07532",
+      "arxiv_id": "2504.07532"
+    },
+    {
+      "title": "Test-Time Preference Optimization: On-the-Fly Alignment via Iterative Textual Feedback",
+      "url": "https://alphaxiv.org/abs/2501.12895",
+      "arxiv_id": "2501.12895"
+    },
+    {
+      "title": "Evaluating Judges as Evaluators: The JETTS Benchmark of LLM-as-Judges as Test-Time Scaling Evaluators",
+      "url": "https://alphaxiv.org/abs/2504.15253",
+      "arxiv_id": "2504.15253"
+    },
+    {
+      "title": "Is Best-of-N the Best of Them? Coverage, Scaling, and Optimality in Inference-Time Alignment",
+      "url": "https://alphaxiv.org/abs/2503.21878",
+      "arxiv_id": "2503.21878"
+    },
+    {
+      "title": "Mind the Gap: Examining the Self-Improvement Capabilities of Large Language Models",
+      "url": "https://alphaxiv.org/abs/2412.02674",
+      "arxiv_id": "2412.02674"
+    }
+  ],
+  "timestamp": "2026-01-04T10:50:11.846904"
+}
