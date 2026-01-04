@@ -1,0 +1,73 @@
+papers:
+- added: '2026-01-04T11:48:50.104660'
+  arxiv_id: '2311.17323'
+  title: 'Mirage: An RNS-Based Photonic Accelerator for DNN Training'
+  url: https://alphaxiv.org/abs/2311.17323
+- added: '2026-01-04T11:48:50.104664'
+  arxiv_id: '2306.09481'
+  title: Leveraging Residue Number System for Designing High-Precision Analog Deep
+    Neural Network Accelerators
+  url: https://alphaxiv.org/abs/2306.09481
+- added: '2026-01-04T11:48:50.104666'
+  arxiv_id: '2104.03152'
+  title: 'TenSEAL: A Library for Encrypted Tensor Operations Using Homomorphic Encryption'
+  url: https://alphaxiv.org/abs/2104.03152
+- added: '2026-01-04T11:48:50.104667'
+  arxiv_id: '2307.06554'
+  title: TPU as Cryptographic Accelerator
+  url: https://alphaxiv.org/abs/2307.06554
+- added: '2026-01-04T11:48:50.104668'
+  arxiv_id: '2505.18266'
+  title: Uncovering a Universal Abstract Algorithm for Modular Addition in Neural
+    Networks
+  url: https://alphaxiv.org/abs/2505.18266
+- added: '2026-01-04T11:48:50.104669'
+  arxiv_id: '2503.22059'
+  title: Low Rank and Sparse Fourier Structure in Recurrent Networks Trained on Modular
+    Addition
+  url: https://alphaxiv.org/abs/2503.22059
+- added: '2026-01-04T11:48:50.104670'
+  arxiv_id: '2511.23443'
+  title: Provable Benefits of Sinusoidal Activation for Modular Addition
+  url: https://alphaxiv.org/abs/2511.23443
+- added: '2026-01-04T11:48:50.104671'
+  arxiv_id: '2410.02675'
+  title: 'FAN: Fourier Analysis Networks'
+  url: https://alphaxiv.org/abs/2410.02675
+- added: '2026-01-04T11:48:50.104672'
+  arxiv_id: '2402.11224'
+  title: 'Neural Networks with (Low-Precision) Polynomial Approximations: New Insights
+    and Techniques for Accuracy Improvement'
+  url: https://alphaxiv.org/abs/2402.11224
+- added: '2026-01-04T11:48:50.104673'
+  arxiv_id: '2507.14519'
+  title: 'Towards Efficient Privacy-Preserving Machine Learning: A Systematic Review
+    from Protocol, Model, and System Perspectives'
+  url: https://alphaxiv.org/abs/2507.14519
+- added: '2026-01-04T11:51:21.812578'
+  arxiv_id: '2512.25060'
+  title: 'On the geometry and topology of representations: the manifolds of modular
+    addition'
+  url: https://alphaxiv.org/abs/2512.25060
+- added: '2026-01-04T11:51:21.812586'
+  arxiv_id: '2505.06839'
+  title: 'The power of fine-grained experts: Granularity boosts expressivity in Mixture
+    of Experts'
+  url: https://alphaxiv.org/abs/2505.06839
+- added: '2026-01-04T11:51:21.812588'
+  arxiv_id: '2505.07260'
+  title: 'UMoE: Unifying Attention and FFN with Shared Experts'
+  url: https://alphaxiv.org/abs/2505.07260
+- added: '2026-01-04T11:51:21.812589'
+  arxiv_id: '2306.17844'
+  title: 'The Clock and the Pizza: Two Stories in Mechanistic Explanation of Neural
+    Networks'
+  url: https://alphaxiv.org/abs/2306.17844
+- added: '2026-01-04T11:51:21.812590'
+  arxiv_id: '2511.08767'
+  title: 'Hey Pentti, We Did (More of) It!: A Vector-Symbolic Lisp With Residue Arithmetic'
+  url: https://alphaxiv.org/abs/2511.08767
+- added: '2026-01-04T11:51:21.812591'
+  arxiv_id: '2010.12785'
+  title: 'ShiftAddNet: A Hardware-Inspired Deep Network'
+  url: https://alphaxiv.org/abs/2010.12785

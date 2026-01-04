@@ -5,14 +5,14 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "research-verifier"
 version = "0.1.0"
-description = "Automates research verification loops between Claude and Alpharxiv"
+description = "Automates research verification loops between Claude and Alphaxiv"
 readme = "files/README.md"
 requires-python = ">=3.9"
 license = {text = "MIT"}
 authors = [
     {name = "Alpha-Cycle", email = "dev@example.com"}
 ]
-keywords = ["research", "verification", "claude", "alpharxiv", "automation"]
+keywords = ["research", "verification", "claude", "alphaxiv", "automation"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Science/Research",

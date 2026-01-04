@@ -121,7 +121,7 @@ class ProjectManager:
             "settings": {
                 "cycles_per_run": 20,
                 "checkpoint_interval": 5,
-                "alpharxiv_timeout": 120,
+                "alphaxiv_timeout": 120,
             }
         }
         (project_path / "config.yaml").write_text(yaml.dump(config, default_flow_style=False))
@@ -509,7 +509,7 @@ class ProjectManager:
     
     def get_context_recap(self) -> str:
         """
-        Generate a context recap for starting a new Alpharxiv conversation.
+        Generate a context recap for starting a new Alphaxiv conversation.
         Used per Option C (new conversation per phase).
         """
         state = self.state

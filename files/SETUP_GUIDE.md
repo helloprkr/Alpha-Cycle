@@ -40,7 +40,7 @@ playwright install chromium
 cp -r research-verifier-skill /mnt/skills/user/research-verifier
 ```
 
-### 3. First-Time Alpharxiv Login
+### 3. First-Time Alphaxiv Login
 
 ```bash
 # This opens a browser - log in with your Google account
@@ -203,7 +203,7 @@ cat research/cycle-NNN/checkpoint.json
 └──────────────────────────│─────────────────────────────────┘
                            ▼
               ┌─────────────────────────┐
-              │       ALPHARXIV         │
+              │       ALPHAXIV         │
               │   (Gemini + ArXiv DB)   │
               └─────────────────────────┘
 ```

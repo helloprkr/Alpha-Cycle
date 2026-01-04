@@ -1,0 +1,56 @@
+{
+  "text": "The application of the Chinese Remainder Theorem (CRT) in neural networks and machine learning has evolved from a niche optimization for hardware into a fundamental theoretical lens for understanding how models learn modular arithmetic and periodic structures. This \"Technical Trace\" identifies three primary research directions: hardware acceleration through Residue Number Systems (RNS), the mathematical foundation of Privacy-Preserving Machine Learning (PPML), and the emerging \"Representational Trace\" in the study of modular learning and grokking.\n\n1. The Hardware Trace: Residue Number Systems (RNS)\n\nIn neural network hardware, CRT provides the mathematical basis for Residue Number Systems (RNS), which decompose large-integer arithmetic into several smaller, parallel modular operations. This is particularly vital in non-electronic domains (photonic and analog) where high-bit-depth converters are prohibitively expensive. Recent work has demonstrated that RNS allows for high-precision training and inference without the need for complex floating-point units.\n\nMirage: An RNS-Based Photonic Accelerator for DNN Training (2 years ago): This paper introduces an architecture that uses RNS to overcome the dynamic range limitations of photonic computing, allowing for efficient matrix multiplications during DNN training by splitting calculations across multiple modular channels. \nMirage: An RNS-Based Photonic Accelerator for DNN Training\nLeveraging Residue Number System for Designing High-Precision Analog Deep Neural Network Accelerators (3 years ago): This research demonstrates how CRT-based decomposition can achieve high-accuracy deep learning inference on analog hardware, bypassing the need for energy-intensive high-precision data converters. \nLeveraging Residue Number System for Designing High-Precision Analog Deep Neural Network Accelerators\n2. The Privacy Trace: Homomorphic Encryption and CRT-Batching\n\nThe most widespread \"silent\" use of CRT is in Fully Homomorphic Encryption (FHE) schemes (like BFV or CKKS) used for secure inference. CRT allows for \"ciphertext packing\" or \"batching,\" where multiple messages are encoded into a single polynomial. This enables SIMD (Single Instruction, Multiple Data) operations on encrypted tensors, which is the cornerstone of modern privacy-preserving ML libraries.\n\nTenSEAL: A Library for Encrypted Tensor Operations Using Homomorphic Encryption (5 years ago): TenSEAL is a primary implementation of these concepts, utilizing CRT-based batching to allow Python-level tensor operations to be executed on encrypted data with significant performance gains. \nTenSEAL: A Library for Encrypted Tensor Operations Using Homomorphic Encryption\nTPU as Cryptographic Accelerator (2 years ago): This paper explores using the massive parallelization of Tensor Processing Units to accelerate the modular arithmetic required by FHE, explicitly citing the use of RNS/CRT to manage the large integers used in cryptographic protocols. \nTPU as Cryptographic Accelerator\n3. The Representational Trace: Learning Modular Addition\n\nA fascinating recent trend in machine learning theory involves investigating how neural networks learn modular addition (a task often associated with the \"grokking\" phenomenon). Research has shown that networks do not learn a simple lookup table; instead, they converge to a solution that uses Fourier features to perform a CRT-like decomposition of the numbers, effectively \"solving\" the modular task through frequency alignment.\n\nUncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks (7 months ago): This work proposes that disparate neural network solutions for modular addition are unified under a common abstract algorithm that leverages modular properties akin to CRT decompositions. \nUncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks\nLow Rank and Sparse Fourier Structure in Recurrent Networks Trained on Modular Addition (9 months ago): This paper analyzes recurrent networks to show they learn sparse Fourier structures when trained on modular tasks, providing an empirical link between spectral methods and modular arithmetic in deep learning. \nLow Rank and Sparse Fourier Structure in Recurrent Networks Trained on Modular Addition\nProvable Benefits of Sinusoidal Activation for Modular Addition (1 month ago): This very recent study establishes a sharp expressivity gap, showing that sine-based activation functions (which naturally mirror the modular nature of CRT) allow for much more efficient learning of modular arithmetic than standard ReLUs. \nProvable Benefits of Sinusoidal Activation for Modular Addition\nRelated Research and Emerging Directions\n\nThe following papers provide further context on how these modular and periodic structures are being integrated into general-purpose architectures, particularly through Fourier-based representations and specialized quantization.\n\nFAN: Fourier Analysis Networks (1 year ago): Although not explicitly a \"CRT paper,\" this work addresses the shortcomings of standard MLPs in modeling periodic phenomena, proposing an architecture that uses Fourier analysis to improve reasoning on periodic data. \nFAN: Fourier Analysis Networks\nNeural Networks with (Low-Precision) Polynomial Approximations: New Insights and Techniques (2 years ago): This research discusses replacing non-linear activations with polynomial approximations, a standard practice in CRT-based privacy-preserving machine learning. \nNeural Networks with (Low-Precision) Polynomial Approximations: New Insights and Techniques for Accuracy Improvement\nTowards Efficient Privacy-Preserving Machine Learning: A Systematic Review (6 months ago): A comprehensive survey that contextualizes the role of cryptographic protocols (many founded on CRT) within the broader landscape of model and system design. \nTowards Efficient Privacy-Preserving Machine Learning: A Systematic Review from Protocol, Model, and System Perspectives",
+  "papers": [
+    {
+      "title": "Mirage: An RNS-Based Photonic Accelerator for DNN Training",
+      "url": "https://alphaxiv.org/abs/2311.17323",
+      "arxiv_id": "2311.17323"
+    },
+    {
+      "title": "Leveraging Residue Number System for Designing High-Precision Analog Deep Neural Network Accelerators",
+      "url": "https://alphaxiv.org/abs/2306.09481",
+      "arxiv_id": "2306.09481"
+    },
+    {
+      "title": "TenSEAL: A Library for Encrypted Tensor Operations Using Homomorphic Encryption",
+      "url": "https://alphaxiv.org/abs/2104.03152",
+      "arxiv_id": "2104.03152"
+    },
+    {
+      "title": "TPU as Cryptographic Accelerator",
+      "url": "https://alphaxiv.org/abs/2307.06554",
+      "arxiv_id": "2307.06554"
+    },
+    {
+      "title": "Uncovering a Universal Abstract Algorithm for Modular Addition in Neural Networks",
+      "url": "https://alphaxiv.org/abs/2505.18266",
+      "arxiv_id": "2505.18266"
+    },
+    {
+      "title": "Low Rank and Sparse Fourier Structure in Recurrent Networks Trained on Modular Addition",
+      "url": "https://alphaxiv.org/abs/2503.22059",
+      "arxiv_id": "2503.22059"
+    },
+    {
+      "title": "Provable Benefits of Sinusoidal Activation for Modular Addition",
+      "url": "https://alphaxiv.org/abs/2511.23443",
+      "arxiv_id": "2511.23443"
+    },
+    {
+      "title": "FAN: Fourier Analysis Networks",
+      "url": "https://alphaxiv.org/abs/2410.02675",
+      "arxiv_id": "2410.02675"
+    },
+    {
+      "title": "Neural Networks with (Low-Precision) Polynomial Approximations: New Insights and Techniques for Accuracy Improvement",
+      "url": "https://alphaxiv.org/abs/2402.11224",
+      "arxiv_id": "2402.11224"
+    },
+    {
+      "title": "Towards Efficient Privacy-Preserving Machine Learning: A Systematic Review from Protocol, Model, and System Perspectives",
+      "url": "https://alphaxiv.org/abs/2507.14519",
+      "arxiv_id": "2507.14519"
+    }
+  ],
+  "timestamp": "2026-01-04T11:48:50.102132"
+}

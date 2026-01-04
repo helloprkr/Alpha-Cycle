@@ -1,0 +1,46 @@
+{
+  "text": "The \"Technical Trace\" search builds on the discovery of Residue Number System (RNS) acceleration and emergent modularity by bridging the gap between hardware-level arithmetic primitives and the architectural behaviors observed in transformers and Mixture-of-Experts (MoE) models. Research indicates that modular arithmetic is not just a toy task for studying grokking but a fundamental structural principle that can be exploited for hardware efficiency and more interpretable routing mechanisms. Recent developments highlight that as models grok modular tasks, they develop sparse Fourier structures and circular manifolds, suggesting that modularity is an inductive bias that emerges under specific training dynamics.\n\nAt the hardware level, RNS provides a unique advantage for parallelization by decomposing large-integer operations into smaller, independent modular channels. This is being explored in specialized accelerators, such as photonic systems, where the carry-free nature of RNS simplifies the design of high-speed matrix-vector multipliers. In MoE architectures, this modularity is being reflected in \"fine-grained\" expert designs and unified attention-FFN layers, where shared experts act as modular computational units. The following papers trace these developments from theoretical mechanistic interpretability to practical hardware implementation.\n\nCurated Technical Trace: Modular Structures & RNS Acceleration\n\nLow Rank and Sparse Fourier Structure in Recurrent Networks Trained on Modular Addition\n\nThis paper investigates how recurrent networks develop internal structures when learning modular addition, identifying a transition to sparse Fourier representations as the model groks the task. It provides a bridge between the mathematical properties of modular arithmetic and the weight-space geometry of neural networks.\nLow Rank and Sparse Fourier Structure in Recurrent Networks Trained on Modular Addition\n (published 9 months ago)\n\nOn the geometry and topology of representations: the manifolds of modular addition\n\nExploring the \"Clock\" and \"Pizza\" interpretations of modular arithmetic, this recent work analyzes how architectural choices in attention mechanisms influence whether a model learns uniform or learnable circular representations. It is critical for understanding how modularity is \"encoded\" in the embedding space.\nOn the geometry and topology of representations: the manifolds of modular addition\n (published 5 days ago)\n\nMirage: An RNS-Based Photonic Accelerator for DNN Training\n\nDirectly addressing the hardware acceleration identified in your initial findings, this paper presents a photonic accelerator that uses Residue Number Systems to perform efficient matrix multiplications. It demonstrates the practical utility of modular arithmetic for high-speed, energy-efficient training.\nMirage: An RNS-Based Photonic Accelerator for DNN Training\n (published 2 years ago)\n\nThe power of fine-grained experts: Granularity boosts expressivity in Mixture of Experts\n\nThis research shows that increasing the granularity of experts in MoE architectures\u2014effectively making them more modular\u2014leads to significant gains in expressivity and computational efficiency. This aligns with the \"emergent modular structure\" observed in Cycle 1.\nThe power of fine-grained experts: Granularity boosts expressivity in Mixture of Experts\n (published 8 months ago)\n\nUMoE: Unifying Attention and FFN with Shared Experts\n\nUMoE proposes a unified framework where both attention and feed-forward layers share a pool of experts. This architectural shift treats all Transformer components as modular units, potentially allowing modular arithmetic primitives to be applied across the entire model backbone.\nUMoE: Unifying Attention and FFN with Shared Experts\n (published 8 months ago)\n\nThe Clock and the Pizza: Two Stories in Mechanistic Explanation of Neural Networks\n\nA foundational study in mechanistic interpretability that contrasts two different algorithms neural networks use to solve modular addition tasks. It is essential for understanding the \"Technical Trace\" of how modularity manifests in transformers.\nThe Clock and the Pizza: Two Stories in Mechanistic Explanation of Neural Networks\n (published 2 years ago)\n\nHey Pentti, We Did (More of) It!: A Vector-Symbolic Lisp With Residue Arithmetic\n\nThis novel work extends Vector-Symbolic Architectures (VSA) with residue arithmetic, allowing for explicit modular operations within a neural-symbolic framework. It represents an alternative path for integrating RNS directly into the model's logic.\nHey Pentti, We Did (More of) It!: A Vector-Symbolic Lisp With Residue Arithmetic\n (published 2 months ago)\n\nShiftAddNet: A Hardware-Inspired Deep Network\n\nWhile not exclusively about RNS, this paper explores hardware-friendly arithmetic (shift and add operations) that avoids expensive multiplications. It provides the broader context for why modular and low-bitwidth arithmetic is a major trend in AI efficiency.\nShiftAddNet: A Hardware-Inspired Deep Network\n (published 5 years ago)",
+  "papers": [
+    {
+      "title": "Low Rank and Sparse Fourier Structure in Recurrent Networks Trained on Modular Addition",
+      "url": "https://alphaxiv.org/abs/2503.22059",
+      "arxiv_id": "2503.22059"
+    },
+    {
+      "title": "On the geometry and topology of representations: the manifolds of modular addition",
+      "url": "https://alphaxiv.org/abs/2512.25060",
+      "arxiv_id": "2512.25060"
+    },
+    {
+      "title": "Mirage: An RNS-Based Photonic Accelerator for DNN Training",
+      "url": "https://alphaxiv.org/abs/2311.17323",
+      "arxiv_id": "2311.17323"
+    },
+    {
+      "title": "The power of fine-grained experts: Granularity boosts expressivity in Mixture of Experts",
+      "url": "https://alphaxiv.org/abs/2505.06839",
+      "arxiv_id": "2505.06839"
+    },
+    {
+      "title": "UMoE: Unifying Attention and FFN with Shared Experts",
+      "url": "https://alphaxiv.org/abs/2505.07260",
+      "arxiv_id": "2505.07260"
+    },
+    {
+      "title": "The Clock and the Pizza: Two Stories in Mechanistic Explanation of Neural Networks",
+      "url": "https://alphaxiv.org/abs/2306.17844",
+      "arxiv_id": "2306.17844"
+    },
+    {
+      "title": "Hey Pentti, We Did (More of) It!: A Vector-Symbolic Lisp With Residue Arithmetic",
+      "url": "https://alphaxiv.org/abs/2511.08767",
+      "arxiv_id": "2511.08767"
+    },
+    {
+      "title": "ShiftAddNet: A Hardware-Inspired Deep Network",
+      "url": "https://alphaxiv.org/abs/2010.12785",
+      "arxiv_id": "2010.12785"
+    }
+  ],
+  "timestamp": "2026-01-04T11:51:21.808564"
+}

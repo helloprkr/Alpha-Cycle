@@ -1,6 +1,6 @@
 # Research Verifier (rv)
 
-A CLI tool for automating research verification loops between Claude Code and Alpharxiv.
+A CLI tool for automating research verification loops between Claude Code and Alphaxiv.
 
 ## What It Does
 
@@ -11,7 +11,7 @@ Research Verifier automates the tedious parts of systematic literature research:
 │                    RESEARCH VERIFICATION LOOP                   │
 │                                                                 │
 │   ┌──────────────┐         ┌──────────────┐                    │
-│   │  CLAUDE CODE │         │  ALPHARXIV   │                    │
+│   │  CLAUDE CODE │         │  ALPHAXIV   │                    │
 │   │  (Reasoning  │ ◀─────▶ │  (Literature │                    │
 │   │  + Synthesis)│   rv    │   Grounding) │                    │
 │   └──────────────┘         └──────────────┘                    │
@@ -48,7 +48,7 @@ playwright install chromium
 
 ## Quick Start
 
-### 1. Login to Alpharxiv (one-time)
+### 1. Login to Alphaxiv (one-time)
 
 ```bash
 rv login
@@ -101,9 +101,9 @@ rv ask "What are the key papers on inference-time scaling from 2024-2025?"
 | Command | Description |
 |---------|-------------|
 | `rv new <name>` | Create a new research project |
-| `rv login` | Authenticate with Alpharxiv (one-time) |
+| `rv login` | Authenticate with Alphaxiv (one-time) |
 | `rv login --debug` | Login with debug output for troubleshooting |
-| `rv ask "<question>"` | Send a single question to Alpharxiv |
+| `rv ask "<question>"` | Send a single question to Alphaxiv |
 | `rv run --cycles N` | Run N automated verification cycles |
 | `rv run --phase expansive` | Force a specific phase type |
 | `rv run --debug` | Run with debug output |
@@ -130,7 +130,7 @@ my-research-topic/
 │
 ├── research/
 │   └── cycle-001/
-│       ├── questions.md      # Questions sent to Alpharxiv
+│       ├── questions.md      # Questions sent to Alphaxiv
 │       ├── responses/
 │       │   ├── q01-response.md    # Response text + paper links
 │       │   └── q01-response.json  # Same, machine-readable
@@ -170,7 +170,7 @@ The most effective way to use this tool is with Claude Code orchestrating the re
 
 1. **You** describe what you want to verify to Claude Code
 2. **Claude Code** reads your concept and generates targeted questions
-3. **You** run `rv ask "question"` to query Alpharxiv
+3. **You** run `rv ask "question"` to query Alphaxiv
 4. **Claude Code** reads the response and synthesizes findings
 5. **Claude Code** identifies gaps and generates follow-up questions
 6. **Repeat** for multiple cycles
@@ -209,7 +209,7 @@ project_name: my-research
 settings:
   cycles_per_run: 20          # Max cycles per automated run
   checkpoint_interval: 5      # Save checkpoint every N cycles
-  alpharxiv_timeout: 120      # Seconds to wait for response
+  alphaxiv_timeout: 120      # Seconds to wait for response
 ```
 
 ## Troubleshooting
@@ -223,7 +223,7 @@ source .venv/bin/activate
 
 ### Login verification failed
 
-1. Make sure you're fully logged into Alpharxiv in the browser
+1. Make sure you're fully logged into Alphaxiv in the browser
 2. Wait until you see the chat interface before pressing Enter
 3. Try with debug mode: `rv login --debug`
 
@@ -245,15 +245,15 @@ Use `rv resume` to continue from the last checkpoint.
 ### Response extraction issues
 
 If papers aren't being extracted:
-1. The Alpharxiv UI may have changed
+1. The Alphaxiv UI may have changed
 2. Check debug output for selector information
 3. Report issues with the debug log
 
 ## How It Works
 
-1. **Browser Automation**: Uses Playwright with a persistent browser profile to maintain your Google login to Alpharxiv
+1. **Browser Automation**: Uses Playwright with a persistent browser profile to maintain your Google login to Alphaxiv
 
-2. **Query Execution**: Types your question into Alpharxiv and waits for the response to complete
+2. **Query Execution**: Types your question into Alphaxiv and waits for the response to complete
 
 3. **Response Extraction**: Parses the response text and extracts paper links (arxiv IDs, titles, URLs)
 

@@ -1,0 +1,33 @@
+{
+  "projectType": "alpha-cycle",
+  "autoReadFiles": [
+    "CLAUDE.md",
+    "files/SKILL.md",
+    "files/prompts.md"
+  ],
+  "contextFiles": [
+    "concept/README.md",
+    "hypotheses/v1/hypothesis.md",
+    "hypotheses/v1/components.yaml",
+    "gaps/active.yaml",
+    ".research-state.yaml"
+  ],
+  "triggers": {
+    "activate": [
+      "verify this hypothesis",
+      "validate my theory",
+      "run research cycles",
+      "check against literature",
+      "setup alpha-cycle project",
+      "here's my hypothesis"
+    ]
+  },
+  "defaults": {
+    "cycleCount": 20,
+    "phases": {
+      "expansive": [1, 7],
+      "integrative": [8, 14],
+      "synthesis": [15, 20]
+    }
+  }
+}

@@ -1,5 +1,5 @@
-created: '2026-01-04T00:53:42.657564'
-project_name: test-project
+created: '2026-01-04T11:45:27.299502'
+project_name: crt-neural-architectures
 settings:
   alphaxiv_timeout: 120
   checkpoint_interval: 5

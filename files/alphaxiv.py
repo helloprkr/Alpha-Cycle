@@ -1,5 +1,5 @@
 """
-Alpharxiv browser automation client using Playwright.
+Alphaxiv browser automation client using Playwright.
 
 Handles:
 - Persistent browser session (Google OAuth)
@@ -24,18 +24,18 @@ except ImportError:
 
 
 @dataclass
-class AlpharxivResponse:
-    """Structured response from Alpharxiv."""
+class AlphaxivResponse:
+    """Structured response from Alphaxiv."""
     text: str
     papers: list = field(default_factory=list)
     timestamp: str = field(default_factory=lambda: datetime.now().isoformat())
     raw_html: str = ""
 
 
-class AlpharxivClient:
-    """Browser automation client for Alpharxiv assistant."""
+class AlphaxivClient:
+    """Browser automation client for Alphaxiv assistant."""
     
-    ALPHARXIV_URL = "https://www.alphaxiv.org/assistant"
+    ALPHAXIV_URL = "https://www.alphaxiv.org/assistant"
     PROFILE_DIR = Path.home() / ".research-verifier" / "browser-profile"
     
     # Multiple selector fallbacks for resilience to UI changes
@@ -191,11 +191,11 @@ class AlpharxivClient:
         """
         await self._ensure_browser()
 
-        print("Opening Alpharxiv in browser...")
+        print("Opening Alphaxiv in browser...")
         print("Please log in with your Google account.")
         print("Press Enter in this terminal when you're logged in and see the assistant chat interface.")
 
-        await self.page.goto(self.ALPHARXIV_URL)
+        await self.page.goto(self.ALPHAXIV_URL)
 
         # Wait for user to complete login
         input("\n→ Press Enter after logging in... ")
@@ -221,7 +221,7 @@ class AlpharxivClient:
     async def new_conversation(self):
         """Start a fresh conversation by navigating to the assistant URL."""
         await self._ensure_browser()
-        await self.page.goto(self.ALPHARXIV_URL)
+        await self.page.goto(self.ALPHAXIV_URL)
 
         # Wait for page to load
         await asyncio.sleep(2)
@@ -242,14 +242,14 @@ class AlpharxivClient:
             print("   2. The website UI has changed")
             print("   3. There's a CAPTCHA or verification required")
             raise RuntimeError(
-                f"Could not find chat input on {self.ALPHARXIV_URL}. "
+                f"Could not find chat input on {self.ALPHAXIV_URL}. "
                 f"Run 'rv login' to authenticate or check {screenshot_path}"
             )
 
         # Small delay to ensure page is fully loaded
         await asyncio.sleep(1)
     
-    async def query(self, question: str, timeout_seconds: int = 120) -> AlpharxivResponse:
+    async def query(self, question: str, timeout_seconds: int = 120) -> AlphaxivResponse:
         """
         Send a question and wait for response.
 
@@ -258,7 +258,7 @@ class AlpharxivClient:
             timeout_seconds: Max wait time for response (default 120s for long queries)
 
         Returns:
-            AlpharxivResponse with text and extracted papers
+            AlphaxivResponse with text and extracted papers
         """
         await self._ensure_browser()
 
@@ -388,7 +388,7 @@ class AlpharxivClient:
             else:
                 print(f"  [DEBUG] Timeout reached, proceeding with extraction")
     
-    async def _extract_response(self) -> AlpharxivResponse:
+    async def _extract_response(self) -> AlphaxivResponse:
         """Extract the latest response text and paper links."""
 
         if self.debug:
@@ -424,8 +424,8 @@ class AlpharxivClient:
             main = await self.page.query_selector("main, [role='main'], #__next")
             if main:
                 text = await main.inner_text()
-                return AlpharxivResponse(text=text, papers=[], raw_html="")
-            return AlpharxivResponse(text="[No response found]", papers=[])
+                return AlphaxivResponse(text=text, papers=[], raw_html="")
+            return AlphaxivResponse(text="[No response found]", papers=[])
 
         # Get the last message (most recent response)
         last_message = messages[-1]
@@ -465,7 +465,7 @@ class AlpharxivClient:
         except Exception:
             raw_html = ""
 
-        return AlpharxivResponse(
+        return AlphaxivResponse(
             text=text,
             papers=papers,
             raw_html=raw_html
@@ -474,7 +474,7 @@ class AlpharxivClient:
     async def send_context_recap(self, recap: str):
         """
         Send a context recap as an actionable question.
-        Alpharxiv needs a question to respond to, not just context.
+        Alphaxiv needs a question to respond to, not just context.
         """
         # Convert recap into an actionable question
         context_prompt = f"""I'm researching the following topic. Please help me find relevant papers and summarize the current state of research.
@@ -500,7 +500,7 @@ Based on this context, what are the most relevant recent papers (from the last 2
 # Standalone test
 async def test_client():
     """Quick test of the client."""
-    client = AlpharxivClient(headless=False)
+    client = AlphaxivClient(headless=False)
     
     try:
         # First time: login

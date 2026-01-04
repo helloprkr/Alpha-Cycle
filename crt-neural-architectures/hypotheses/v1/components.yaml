@@ -1,0 +1,33 @@
+# Decomposed verifiable claims
+components:
+  - id: 1
+    claim: "CRT decomposition of matrix operations provides computational efficiency benefits"
+    status: supported
+    evidence:
+      - "2311.17323: Mirage RNS photonic accelerator - parallel modular operations"
+      - "2306.09481: RNS for analog DNN accelerators"
+
+  - id: 2
+    claim: "Attention mechanisms can be reformulated using modular arithmetic over coprime subspaces"
+    status: untested
+    evidence: []
+
+  - id: 3
+    claim: "Residue Number Systems provide advantages for neural network quantization"
+    status: supported
+    evidence:
+      - "2311.17323: RNS overcomes dynamic range limitations"
+      - "2306.09481: High-precision without expensive converters"
+
+  - id: 4
+    claim: "Mixture-of-Experts architectures have structural connections to CRT decomposition"
+    status: untested
+    evidence: []
+
+  - id: 5
+    claim: "Trained neural networks exhibit emergent modular arithmetic structure"
+    status: supported
+    evidence:
+      - "2505.18266: Universal algorithm for modular addition - CRT-like decomposition"
+      - "2503.22059: Sparse Fourier structure in RNNs on modular tasks"
+      - "2511.23443: Provable benefits of sinusoidal activation for modular tasks"

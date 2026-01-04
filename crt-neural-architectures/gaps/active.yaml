@@ -1,0 +1,54 @@
+gaps:
+- created: ''
+  description: ''
+  id: 1
+  priority: high
+  related_components: []
+- created: '2026-01-04T11:46:53.716326'
+  description: What prior work exists on CRT decomposition for matrix operations in
+    neural networks?
+  id: 2
+  priority: high
+  related_components: []
+- created: '2026-01-04T11:46:53.823081'
+  description: Has modular arithmetic been used in attention mechanism design?
+  id: 3
+  priority: high
+  related_components: []
+- created: '2026-01-04T11:46:53.927654'
+  description: What is the state of RNS-based quantization research for neural networks?
+  id: 4
+  priority: high
+  related_components: []
+- created: '2026-01-04T11:46:54.031069'
+  description: Are there documented connections between MoE and number-theoretic structures?
+  id: 5
+  priority: medium
+  related_components: []
+- created: '2026-01-04T11:46:54.135671'
+  description: Does grokking research show emergence of modular arithmetic circuits?
+  id: 6
+  priority: medium
+  related_components: []
+- created: '2026-01-04T11:49:17.494866'
+  description: How do Fourier-based architectures (FAN) relate to explicit CRT decomposition?
+  id: 7
+  priority: medium
+  related_components: []
+- created: '2026-01-04T11:49:17.498373'
+  description: What specific MoE architectures have been analyzed for modular structure?
+  id: 8
+  priority: medium
+  related_components: []
+- created: '2026-01-04T11:51:51.003966'
+  description: Can we prove formal equivalence between MoE expert routing and CRT
+    reconstruction?
+  id: 9
+  priority: medium
+  related_components: []
+- created: '2026-01-04T11:51:51.007922'
+  description: What determines which modular algorithm (Clock vs Pizza) a network
+    learns?
+  id: 10
+  priority: medium
+  related_components: []

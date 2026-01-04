@@ -1,6 +1,6 @@
 # Research Verifier Prompts Reference
 
-Optimized frameworks combining rigorous academic methodology with Alpharxiv's parallel search, organization filtering, and deep-text analysis capabilities.
+Optimized frameworks combining rigorous academic methodology with Alphaxiv's parallel search, organization filtering, and deep-text analysis capabilities.
 
 ---
 
@@ -206,7 +206,7 @@ Include exact links and recency for all evidence.
 
 ---
 
-## Quick Reference: Alpharxiv Trigger Phrases
+## Quick Reference: Alphaxiv Trigger Phrases
 
 | Capability | Trigger Phrase |
 |------------|----------------|
@@ -253,7 +253,7 @@ Instead of vague descriptions, use precise technical language:
 
 ## Gap Identification Patterns
 
-Look for these indicators in Alpharxiv responses:
+Look for these indicators in Alphaxiv responses:
 
 **Explicit Gap Indicators:**
 - "open question"

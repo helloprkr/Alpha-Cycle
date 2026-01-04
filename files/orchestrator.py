@@ -16,7 +16,7 @@ from datetime import datetime
 from typing import List, Dict, Optional, Callable
 from dataclasses import dataclass
 
-from .alpharxiv import AlpharxivClient, AlpharxivResponse
+from .alphaxiv import AlphaxivClient, AlphaxivResponse
 from .project import ProjectManager
 
 
@@ -26,7 +26,7 @@ class CycleResult:
     cycle_num: int
     phase: str
     questions: List[str]
-    responses: List[AlpharxivResponse]
+    responses: List[AlphaxivResponse]
     synthesis: str
     new_gaps: List[dict]
     papers_found: List[dict]
@@ -62,7 +62,7 @@ class ResearchOrchestrator:
         """
         self.pm = project_manager
         self.debug = debug
-        self.client = AlpharxivClient(headless=False, debug=debug)  # Visible for debugging
+        self.client = AlphaxivClient(headless=False, debug=debug)  # Visible for debugging
         self._question_generator: Optional[Callable] = None
     
     def set_question_generator(self, generator: Callable):
@@ -95,13 +95,13 @@ class ResearchOrchestrator:
         results = []
         
         try:
-            # Start new Alpharxiv conversation
+            # Start new Alphaxiv conversation
             await self.client.new_conversation()
 
             # Only send context recap if we have previous cycles (something to recap)
             if self.pm.state.total_cycles_completed > 0:
                 recap = self.pm.get_context_recap()
-                print("📋 Sending context recap to Alpharxiv...")
+                print("📋 Sending context recap to Alphaxiv...")
                 await self.client.send_context_recap(recap)
             else:
                 print("📋 Starting fresh research session...")
@@ -154,7 +154,7 @@ class ResearchOrchestrator:
         # Save questions
         self.pm.save_cycle_questions(cycle_num, questions)
         
-        # 2. Query Alpharxiv for each question
+        # 2. Query Alphaxiv for each question
         responses = []
         all_papers = []
         
@@ -180,7 +180,7 @@ class ResearchOrchestrator:
                 
             except Exception as e:
                 print(f"    ✗ Error: {e}")
-                responses.append(AlpharxivResponse(
+                responses.append(AlphaxivResponse(
                     text=f"[Error: {e}]",
                     papers=[]
                 ))
@@ -331,7 +331,7 @@ class ResearchOrchestrator:
         
         return questions
     
-    def _synthesize_responses(self, responses: List[AlpharxivResponse], 
+    def _synthesize_responses(self, responses: List[AlphaxivResponse], 
                              phase: str) -> tuple[str, List[dict]]:
         """
         Synthesize multiple responses into a coherent summary.

@@ -5,8 +5,8 @@ I like to work on ideas and theoretical concepts for ai, math, geometry, etc… 
 
 Claude chat in the browser
 tell Claude the idea, and ask it to format questions for my “Ai Researcher” to help verify or find solutions to the idea
-go to Alpharxiv.org/assistant in the browser (who acts as the Ai Researcher) and give it the questions
-copy those answers from Alpharxiv
+go to Alphaxiv.org/assistant in the browser (who acts as the Ai Researcher) and give it the questions
+copy those answers from Alphaxiv
 paste those answers to Claude
 and then repeat this several times per component of the concept.
 What are ways that I can create a 10-20 cycle loop for this manual process that would automate this on any given project or concept?
@@ -33,12 +33,12 @@ This is a great automation target - you're essentially building a research verif
 
 Architecture Options
 1. Claude Code Orchestrator with Browser Automation
-The most practical approach - Claude Code manages the loop logic while Playwright/Puppeteer handles Alpharxiv interaction.
+The most practical approach - Claude Code manages the loop logic while Playwright/Puppeteer handles Alphaxiv interaction.
 
 ┌─────────────────────────────────────────────────────────┐
 │                    Claude Code                          │
 │  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐ │
-│  │ Question    │───▶│ Alpharxiv   │───▶│ Synthesis   │ │
+│  │ Question    │───▶│ Alphaxiv   │───▶│ Synthesis   │ │
 │  │ Generator   │    │ Scraper     │    │ Engine      │ │
 │  └─────────────┘    └─────────────┘    └─────────────┘ │
 │         ▲                                     │        │
@@ -46,7 +46,7 @@ The most practical approach - Claude Code manages the loop logic while Playwrigh
 │                    (10-20 cycles)                      │
 └─────────────────────────────────────────────────────────┘
 2. MCP Server Wrapper
-Build an MCP server that exposes Alpharxiv as a tool Claude can call directly - cleaner integration but more setup.
+Build an MCP server that exposes Alphaxiv as a tool Claude can call directly - cleaner integration but more setup.
 
 3. Hybrid Clipboard + Hotkey Automation
 Lightest touch - automate the copy/paste mechanics while you stay in the loop for oversight.
@@ -57,21 +57,21 @@ I'd suggest building this as a Claude Code skill you can invoke on any concept. 
 /mnt/skills/user/research-verifier/
 ├── SKILL.md              # Instructions for Claude Code
 ├── orchestrator.py       # Main loop logic
-├── alpharxiv_client.py   # Browser automation for Alpharxiv
+├── alphaxiv_client.py   # Browser automation for Alphaxiv
 ├── question_templates.py # Structured question formats
 └── outputs/              # Session logs and synthesis
 Core loop logic:
 
 Accept concept/hypothesis as input
 Generate structured verification questions (mathematical, empirical, literature)
-Submit to Alpharxiv via browser automation
+Submit to Alphaxiv via browser automation
 Extract and parse responses
 Synthesize findings + identify gaps
 Generate refined follow-up questions
 Repeat N cycles
 Produce final synthesis document
 Key Questions Before Building
-Alpharxiv access - Do you have an account? Does it require login? (This affects the automation approach)
+Alphaxiv access - Do you have an account? Does it require login? (This affects the automation approach)
 Question structure - For AHNA-style verification, do you want templated question types like:
 Mathematical consistency checks
 Literature precedent searches
@@ -79,13 +79,13 @@ Empirical prediction validation
 Counter-argument generation
 Output format - Markdown synthesis? Structured JSON for further processing? Both?
 Intervention points - Fully autonomous 20 cycles, or checkpoints where you review before continuing?
-Want me to start building out the core orchestrator and Alpharxiv client? I can create a working prototype that you'd run via Claude Code, then iterate on the question generation logic based on how AHNA verification typically flows.
+Want me to start building out the core orchestrator and Alphaxiv client? I can create a working prototype that you'd run via Claude Code, then iterate on the question generation logic based on how AHNA verification typically flows.
 
 Let's keep planning this out accurately before we attempt to build.
 
 Answers: 1) Yes, you have to be logged in through google/gmail. This is what I use and I currently have an account and have been logged in to do this.
 2) For complex AHNA-style verification, yes. But I want to be able to use this process for many types of projects/concepts: AI, application creation, theoretical AI architectures creation, etc.
-3) I'm not sure what would work best, because we want to be able to have the links that Alpharxiv gives us. Perhaps markdown for speed, and JSON for documented archiving.
+3) I'm not sure what would work best, because we want to be able to have the links that Alphaxiv gives us. Perhaps markdown for speed, and JSON for documented archiving.
 4) Perhaps 20 cycles, update the hypothesis with a new version, and document and archive all findings into their proper folders. 
 
 So we should have a project directory that has something like:
@@ -122,17 +122,17 @@ Architected multi-project verification system with structured directory organiza
 Excellent - this is shaping up to be a proper research infrastructure system. Let me map out what we still need to clarify and what technical challenges we'll face.
 
 Outstanding Questions
-Alpharxiv Interface Details
+Alphaxiv Interface Details
 I need to understand the mechanics:
 
-Interface type - Is alpharxiv.org/assistant a chat interface (like Claude)? Does it have a text input box and display responses in a thread?
-Response structure - When Alpharxiv returns papers/links, how are they formatted? Inline citations? Separate reference list? Clickable links?
+Interface type - Is alphaxiv.org/assistant a chat interface (like Claude)? Does it have a text input box and display responses in a thread?
+Response structure - When Alphaxiv returns papers/links, how are they formatted? Inline citations? Separate reference list? Clickable links?
 Session behavior - Does it maintain conversation context, or is each query independent?
 Rate/usage limits - Any throttling you've noticed when doing this manually?
 Cycle Logic
 Gap identification - After 20 cycles complete, how do you currently decide what gaps remain? Is this:
 Claude analyzing all responses and identifying contradictions/unknowns?
-Alpharxiv explicitly flagging "areas needing more research"?
+Alphaxiv explicitly flagging "areas needing more research"?
 Your judgment call?
 Hypothesis versioning trigger - What constitutes enough evidence to version up the hypothesis? A certain threshold of validated components?
 Question generation scope - For a single concept, roughly how many distinct "components" typically need verification? (This helps calibrate the 20-cycle budget)
@@ -152,7 +152,7 @@ Based on your outline, here's a more implementation-ready structure:
 │       └── ...
 ├── research/
 │   ├── cycle-001/
-│   │   ├── questions.md           # Questions sent to Alpharxiv
+│   │   ├── questions.md           # Questions sent to Alphaxiv
 │   │   ├── responses/
 │   │   │   ├── q01-response.md    # Individual response + links
 │   │   │   ├── q02-response.md
@@ -195,7 +195,7 @@ We need to reliably extract:
 The main answer text
 All citation links (papers, repos)
 Any structured data (tables, lists)
-This requires inspecting Alpharxiv's DOM structure. Can you share:
+This requires inspecting Alphaxiv's DOM structure. Can you share:
 
 A screenshot of a typical response?
 Or the URL structure of paper links they provide?
@@ -217,7 +217,7 @@ Or the URL structure of paper links they provide?
        ▼                                     │
 ┌─────────────┐                              │
 │ Query       │──┐                           │
-│ Alpharxiv   │  │ 20 cycles                 │
+│ Alphaxiv   │  │ 20 cycles                 │
 └──────┬──────┘  │                           │
        ▼         │                           │
 ┌─────────────┐  │                           │
@@ -250,11 +250,11 @@ Phase 1: Manual-assist prototype
 
 Directory scaffolding generator
 Question formatter (you paste concept, it outputs structured questions)
-Response parser (you paste Alpharxiv response, it extracts links/citations to YAML)
+Response parser (you paste Alphaxiv response, it extracts links/citations to YAML)
 Synthesis template generator
 Phase 2: Semi-automated
 
-Playwright script for Alpharxiv interaction
+Playwright script for Alphaxiv interaction
 Single-cycle automation (you trigger each cycle)
 Gap identification logic
 Phase 3: Full automation
@@ -265,7 +265,7 @@ Test registry integration
 Next Step
 Could you either:
 
-Share a screenshot or describe what Alpharxiv's response interface looks like (so I can plan the extraction logic), or
+Share a screenshot or describe what Alphaxiv's response interface looks like (so I can plan the extraction logic), or
 Let me visit the site myself to understand the structure?
 Also - do you want this built as a Claude Code skill (lives in /mnt/skills/user/, invocable from any project) or as a standalone CLI tool you'd run in Cursor?
 
@@ -275,18 +275,18 @@ Designing a rigorous falsification framework for a novel theory like the Arithme
 
 pasted
 
-Alpharxiv Interface Details
+Alphaxiv Interface Details
 1. Yes, chat-type interface
 2. Inline citations (if I understand it correctely) and with clickable links. See pasted response.
 3. Maintains session / conversation context.
 4. I believe it uses Gemini 3 Flash Pro, so it takes about 1 min to get answers back, but I haven't done more than 3-4 chats at the same time, maybe every 5 mins.
-5. Claude analyzing all responses and identifying contradictions/unknowns +Alpharxiv explicitly flagging "areas needing more research". ***When I take the answers from Alpharxiv, I paste them into Claude, AND I include 1 of 3 prompts with the answers: 1) An expansive-research type prompt with an outward scope, 2) or a more introspective and integrative phase of the inquiry, or 3) the "cycle-end" type prompt where it asks something like "Where do we stand now with these updated insights?"
+5. Claude analyzing all responses and identifying contradictions/unknowns +Alphaxiv explicitly flagging "areas needing more research". ***When I take the answers from Alphaxiv, I paste them into Claude, AND I include 1 of 3 prompts with the answers: 1) An expansive-research type prompt with an outward scope, 2) or a more introspective and integrative phase of the inquiry, or 3) the "cycle-end" type prompt where it asks something like "Where do we stand now with these updated insights?"
 6. I haven't really boiled this down yet, but it's basically when we find new critical insights that support the hypothesis, bridges a new gap or old gap in the hypothesis, or critical proof that contradicts our hypothesis. After a 20-cycle session, there should be clear movement through most of those 3 triggers, which is suffecient for a hypothesis update.
 7.  There's probably 10 at any one time. Let's assume that the 80/20-rule applies here. 80% of the answers and solutions come from 20% of the components needing verification.
 
 Technical Challenges:
 1. Playwright with persistent context seems the right choice. If this fails, we can always try the chrome devtools after.
-2. See attached screenshot and pasted responses from Alpharxiv
+2. See attached screenshot and pasted responses from Alphaxiv
 
 What we Build First:
 Phase 1 - this seems redudent and what I'm already doing. Let's skip this.
@@ -324,11 +324,11 @@ Let me analyze everything comprehensively before we proceed.
 
 
 Failed to fetch
-https://www.alpharxiv.org
+https://www.alphaxiv.org
 
 Synthesized available resources to proceed with analysis.
 
-I can see from your screenshot that Alpharxiv uses a clean chat interface with markdown rendering and inline arxiv links. That's workable. Let me give you my full analysis:
+I can see from your screenshot that Alphaxiv uses a clean chat interface with markdown rendering and inline arxiv links. That's workable. Let me give you my full analysis:
 
 Comprehensive Analysis
 What We're Actually Building
@@ -338,7 +338,7 @@ At its core, this is a research agent orchestrator that creates a cognitive loop
 │                    COGNITIVE LOOP                               │
 │                                                                 │
 │   ┌──────────────┐         ┌──────────────┐                    │
-│   │    CLAUDE    │         │  ALPHARXIV   │                    │
+│   │    CLAUDE    │         │  ALPHAXIV   │                    │
 │   │  (Reasoning  │ ◀─────▶ │  (Literature │                    │
 │   │  + Synthesis)│         │   Grounding) │                    │
 │   └──────────────┘         └──────────────┘                    │
@@ -373,12 +373,12 @@ Claude Code integration	Stays in your existing workflow
 Weaknesses & Risks
 Risk	Severity	Mitigation
 Google OAuth bot detection	High	Playwright persistent profile with manual first-login; avoid headless mode initially
-Alpharxiv DOM changes	Medium	Abstract selectors into config; use text-based fallbacks
+Alphaxiv DOM changes	Medium	Abstract selectors into config; use text-based fallbacks
 ~1 min response time	Low	20 cycles × 1 min = 20 min minimum; async-friendly design
 Session timeout mid-run	Medium	Checkpoint after each cycle; re-auth retry logic
 Context window bloat	Medium	Summarize after every 5 cycles; don't pass raw transcripts
 Cycle 15 failure	High	Checkpoint/resume from any cycle; idempotent operations
-Parsing edge cases	Medium	Alpharxiv response format looks consistent (markdown + arxiv links); need robust regex for link extraction
+Parsing edge cases	Medium	Alphaxiv response format looks consistent (markdown + arxiv links); need robust regex for link extraction
 Meta-Perspective: What This Really Is
 You're building infrastructure for systematic theory development. This isn't just AHNA tooling - it's a general framework for:
 
@@ -428,8 +428,8 @@ Claude Code: *thinks* → generates questions → invokes `research-verify query
 Option B: The automation script calls Claude API internally
 
 You: `research-verify run --concept "AHNA tropical attention"`
-Script: calls Claude API for questions → queries Alpharxiv → calls Claude API for synthesis → loops
-My recommendation: Option A. Keep Claude Code as the reasoning engine. The tool just handles the Alpharxiv automation and file management. This keeps you in the loop and lets Claude Code adapt dynamically.
+Script: calls Claude API for questions → queries Alphaxiv → calls Claude API for synthesis → loops
+My recommendation: Option A. Keep Claude Code as the reasoning engine. The tool just handles the Alphaxiv automation and file management. This keeps you in the loop and lets Claude Code adapt dynamically.
 
 2. Cycle pacing - who controls the rhythm?
 
@@ -439,13 +439,13 @@ Option C: Phase-based - pauses after each prompt-type transition
 
 My recommendation: Start with Option A for the 2-cycle test, but build checkpoint infrastructure for Option B (every 5 cycles).
 
-3. Alpharxiv session handling
+3. Alphaxiv session handling
 
 Option A: One long conversation (maintains context, but risks hitting limits)
 Option B: New conversation per cycle (loses context, but more robust)
 Option C: New conversation per phase (balance)
 
-My recommendation: Option A for now - Alpharxiv's context window is valuable. Add session-reset logic if we hit issues.
+My recommendation: Option A for now - Alphaxiv's context window is valuable. Add session-reset logic if we hit issues.
 
 What We're Building (Final Scope)
 Deliverable 1: CLI Tool (research-verify)
@@ -467,7 +467,7 @@ Proposed Build Order
 Step 1: Scaffold the project structure + CLI skeleton
         └── Verify we can invoke from Cursor terminal
 
-Step 2: Playwright Alpharxiv client (login, send message, extract response)
+Step 2: Playwright Alphaxiv client (login, send message, extract response)
         └── Test: manually log in once, then automate one query
 
 Step 3: Response parser (extract markdown + arxiv links to structured format)
@@ -485,8 +485,8 @@ Step 6: Full 20-cycle support with checkpointing
 Step 7: Gap tracking + hypothesis versioning logic
         └── Test: trigger a hypothesis version update
 My Remaining Questions
-Alpharxiv new conversation - How do you start a fresh conversation there? Is there a "New Chat" button, or do you navigate to a specific URL?
-Response completion signal - How do you know when Alpharxiv is done responding? Does a "stop generating" button disappear? Does a specific element appear?
+Alphaxiv new conversation - How do you start a fresh conversation there? Is there a "New Chat" button, or do you navigate to a specific URL?
+Response completion signal - How do you know when Alphaxiv is done responding? Does a "stop generating" button disappear? Does a specific element appear?
 Your Claude API access - Do you have an Anthropic API key we can use for any standalone processing, or should everything route through Claude Code's native reasoning?
 Preferred Python version - I'll assume Python 3.11+ unless you have constraints.
 Alignment Check
@@ -494,7 +494,7 @@ Are we aligned on:
 
  Option A for question generation (Claude Code as reasoning engine)
  Starting with 2-cycle test, scaling to 20
- Single Alpharxiv conversation per run (Option A)
+ Single Alphaxiv conversation per run (Option A)
  Build order above
  The three deliverables (CLI, Skill, Template)
 Once you confirm (and answer the remaining questions), I'll start building Step 1.
@@ -564,7 +564,7 @@ What's Built
 
 File	Purpose
 cli.py	Natural commands: rv new, rv login, rv ask, rv run, rv status, rv resume
-alpharxiv.py	Playwright browser automation with persistent Google OAuth session
+alphaxiv.py	Playwright browser automation with persistent Google OAuth session
 project.py	Directory structure management, state tracking, paper/gap registries
 orchestrator.py	Cycle execution, phase transitions, checkpointing
 2. Claude Code Skill (research-verifier-skill/)
@@ -574,7 +574,7 @@ SKILL.md	Teaches Claude Code when/how to use the tool
 references/prompts.md	Question templates, synthesis frameworks, phase logic
 Key Design Decisions Implemented
 Option A: Claude Code generates questions (no separate API cost)
-Option C: New Alpharxiv conversation per phase with context recap
+Option C: New Alphaxiv conversation per phase with context recap
 Natural commands: rv new, rv run, rv ask (easy to remember)
 Checkpoint/resume: Every cycle saves state, recoverable on failure
 80/20 gap focus: Question generation prioritizes high-priority gaps
@@ -585,7 +585,7 @@ Create test project: rv new test-concept
 Run 2-cycle test: rv run --cycles 2
 Verify outputs: Check research/cycle-001/ for responses and papers
 What Might Need Adjustment
-The Alpharxiv selectors in alpharxiv.py are based on your screenshots but may need tuning. Key selectors to watch:
+The Alphaxiv selectors in alphaxiv.py are based on your screenshots but may need tuning. Key selectors to watch:
 
 python
 SELECTORS = {
@@ -603,7 +603,7 @@ Skill
 Document · MD 
 Cli
 PY 
-Alpharxiv
+Alphaxiv
 PY 
 Orchestrator
 PY 

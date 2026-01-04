@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 """
-Research Verifier CLI - Automates research verification loops between Claude and Alpharxiv.
+Research Verifier CLI - Automates research verification loops between Claude and Alphaxiv.
 
 Natural commands:
     rv new <project-name>     Create a new research project
-    rv ask <question>         Send a question to Alpharxiv and capture response
+    rv ask <question>         Send a question to Alphaxiv and capture response
     rv cycle <question>       Run a single cycle with a specific question (Claude Code orchestrated)
     rv run [--cycles N]       Run N verification cycles (default: 2)
     rv synthesize <N>         Save synthesis for cycle N
     rv gaps [list|add|resolve] Manage research gaps
     rv status                 Show current project status
     rv resume                 Resume from last checkpoint
-    rv login                  Open browser for manual Alpharxiv login
+    rv login                  Open browser for manual Alphaxiv login
 """
 
 import argparse
@@ -20,7 +20,7 @@ import sys
 from pathlib import Path
 
 from .orchestrator import ResearchOrchestrator
-from .alpharxiv import AlpharxivClient
+from .alphaxiv import AlphaxivClient
 from .project import ProjectManager
 
 
@@ -37,7 +37,7 @@ def main():
     new_parser.add_argument('--path', '-p', default='.', help='Parent directory (default: current)')
 
     # rv ask <question>
-    ask_parser = subparsers.add_parser('ask', help='Send a question to Alpharxiv')
+    ask_parser = subparsers.add_parser('ask', help='Send a question to Alphaxiv')
     ask_parser.add_argument('question', nargs='+', help='Question to ask')
     ask_parser.add_argument('--save', '-s', action='store_true', help='Save response to project')
 
@@ -54,7 +54,7 @@ def main():
     subparsers.add_parser('resume', help='Resume from last checkpoint')
 
     # rv login
-    login_parser = subparsers.add_parser('login', help='Open browser for Alpharxiv login')
+    login_parser = subparsers.add_parser('login', help='Open browser for Alphaxiv login')
     login_parser.add_argument('--debug', '-d', action='store_true',
                               help='Enable debug mode to show page structure')
 
@@ -64,7 +64,7 @@ def main():
 
     # rv cycle <question> - Single cycle with specific question (Claude Code orchestrated)
     cycle_parser = subparsers.add_parser('cycle', help='Run a single research cycle with a specific question')
-    cycle_parser.add_argument('question', nargs='+', help='The question to send to Alpharxiv')
+    cycle_parser.add_argument('question', nargs='+', help='The question to send to Alphaxiv')
     cycle_parser.add_argument('--phase', '-p', choices=['expansive', 'integrative', 'synthesis'],
                               default='expansive', help='Phase label for this cycle')
     cycle_parser.add_argument('--cycle-num', '-n', type=int, help='Override cycle number')
@@ -114,14 +114,14 @@ async def dispatch(args):
 
     elif args.command == 'login':
         debug = getattr(args, 'debug', False)
-        client = AlpharxivClient(debug=debug)
+        client = AlphaxivClient(debug=debug)
         await client.login_interactive()
         print("✓ Browser session saved. You can now run automated queries.")
 
     elif args.command == 'ask':
         question = ' '.join(args.question)
-        client = AlpharxivClient()
-        print(f"→ Sending to Alpharxiv: {question[:80]}...")
+        client = AlphaxivClient()
+        print(f"→ Sending to Alphaxiv: {question[:80]}...")
         response = await client.query(question)
         print(f"\n{response['text']}")
         if response['papers']:
@@ -169,7 +169,7 @@ async def dispatch(args):
         cycle_num = args.cycle_num or (pm.state.total_cycles_completed + 1)
         debug = getattr(args, 'debug', False)
 
-        client = AlpharxivClient(headless=False, debug=debug)
+        client = AlphaxivClient(headless=False, debug=debug)
         try:
             # Start new conversation if this is first cycle
             await client.new_conversation()

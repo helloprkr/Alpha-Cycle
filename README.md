@@ -30,7 +30,7 @@ Alpha-Cycle automates the tedious parts of systematic literature research by cre
 │                    RESEARCH VERIFICATION LOOP                   │
 │                                                                 │
 │   ┌──────────────┐         ┌──────────────┐                    │
-│   │  CLAUDE CODE │         │  ALPHARXIV   │                    │
+│   │  CLAUDE CODE │         │  ALPHAXIV   │                    │
 │   │  (Reasoning  │ ◀─────▶ │  (Literature │                    │
 │   │  + Synthesis)│   rv    │   Grounding) │                    │
 │   └──────────────┘         └──────────────┘                    │
@@ -48,7 +48,7 @@ Alpha-Cycle automates the tedious parts of systematic literature research by cre
 | Component | Role |
 |-----------|------|
 | **Claude Code** | Generates questions, synthesizes findings, identifies gaps |
-| **Alpharxiv** | Searches academic literature, grounds claims in papers |
+| **Alphaxiv** | Searches academic literature, grounds claims in papers |
 | **rv CLI** | Handles browser automation, file management, state tracking |
 
 ---
@@ -68,7 +68,7 @@ Alpha-Cycle automates the tedious parts of systematic literature research by cre
 ### Prerequisites
 
 - Python 3.9+
-- [Alpharxiv](https://alphaxiv.org) account (Google OAuth)
+- [Alphaxiv](https://alphaxiv.org) account (Google OAuth)
 - [Cursor IDE](https://cursor.sh) with Claude Code (recommended)
 
 ### Installation
@@ -92,7 +92,7 @@ playwright install chromium
 ### First Run
 
 ```bash
-# 1. Authenticate with Alpharxiv (one-time)
+# 1. Authenticate with Alphaxiv (one-time)
 rv login
 
 # 2. Create a research project
@@ -135,7 +135,7 @@ Alpha-Cycle implements a **metacognitive research loop** that rotates through th
        ▼                                     │
 ┌─────────────┐                              │
 │ Query       │──┐                           │
-│ Alpharxiv   │  │ N cycles                  │
+│ Alphaxiv   │  │ N cycles                  │
 └──────┬──────┘  │                           │
        ▼         │                           │
 ┌─────────────┐  │                           │
@@ -165,8 +165,8 @@ Alpha-Cycle implements a **metacognitive research loop** that rotates through th
 | Command | Description |
 |---------|-------------|
 | `rv new <name>` | Create a new research project |
-| `rv login` | Authenticate with Alpharxiv (one-time) |
-| `rv ask "<question>"` | Send a single question to Alpharxiv |
+| `rv login` | Authenticate with Alphaxiv (one-time) |
+| `rv ask "<question>"` | Send a single question to Alphaxiv |
 | `rv run --cycles N` | Run N automated verification cycles |
 | `rv status` | Show current project status |
 | `rv resume` | Resume from last checkpoint |
@@ -211,7 +211,7 @@ my-research-topic/
 │
 ├── research/
 │   └── cycle-001/
-│       ├── questions.md      # Questions sent to Alpharxiv
+│       ├── questions.md      # Questions sent to Alphaxiv
 │       ├── responses/
 │       │   ├── q01-response.md    # Response text + paper links
 │       │   └── q01-response.json  # Machine-readable format
@@ -244,7 +244,7 @@ The most powerful way to use Alpha-Cycle is with **Claude Code orchestrating** t
 
 1. **You** describe what you want to verify to Claude Code
 2. **Claude Code** reads your concept and generates targeted questions
-3. **Claude Code** runs `rv cycle "question"` to query Alpharxiv
+3. **Claude Code** runs `rv cycle "question"` to query Alphaxiv
 4. **Claude Code** reads the response and synthesizes findings
 5. **Claude Code** identifies gaps and generates follow-up questions
 6. **Repeat** for multiple cycles
@@ -295,7 +295,7 @@ project_name: my-research
 settings:
   cycles_per_run: 20          # Max cycles per automated run
   checkpoint_interval: 5      # Save checkpoint every N cycles
-  alpharxiv_timeout: 120      # Seconds to wait for response
+  alphaxiv_timeout: 120      # Seconds to wait for response
 ```
 
 ---
@@ -314,7 +314,7 @@ source .venv/bin/activate
 <details>
 <summary><strong>Login verification failed</strong></summary>
 
-1. Make sure you're fully logged into Alpharxiv in the browser
+1. Make sure you're fully logged into Alphaxiv in the browser
 2. Wait until you see the chat interface before pressing Enter
 3. Try with debug mode: `rv login --debug`
 </details>
@@ -357,7 +357,7 @@ Use `rv resume` to continue from the last checkpoint.
 Alpha-Cycle/
 ├── files/
 │   ├── cli.py           # Command-line interface
-│   ├── alpharxiv.py     # Playwright browser automation
+│   ├── alphaxiv.py     # Playwright browser automation
 │   ├── project.py       # Directory & state management
 │   ├── orchestrator.py  # Cycle execution engine
 │   ├── SKILL.md         # Claude Code skill definition
@@ -379,7 +379,7 @@ Alpha-Cycle/
 
 Contributions welcome! Areas of interest:
 
-- [ ] Additional AI research assistants (beyond Alpharxiv)
+- [ ] Additional AI research assistants (beyond Alphaxiv)
 - [ ] Improved paper extraction patterns
 - [ ] Visualization of research networks
 - [ ] Export to reference managers (Zotero, Mendeley)
@@ -399,4 +399,5 @@ MIT License - see [LICENSE](LICENSE) for details.
 [⬆ Back to Top](#-alpha-cycle)
 
 </div>
+
 
