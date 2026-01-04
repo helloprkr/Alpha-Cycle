@@ -314,7 +314,124 @@ class ProjectManager:
         with open(gaps_path) as f:
             data = yaml.safe_load(f) or {"gaps": []}
         return data["gaps"]
-    
+
+    def save_synthesis(self, cycle_num: int, synthesis: str, new_gaps: List[str]):
+        """
+        Save synthesis for a cycle (Claude Code orchestrated).
+
+        Args:
+            cycle_num: Cycle number
+            synthesis: Synthesis markdown content
+            new_gaps: List of gap descriptions to add
+        """
+        cycle_dir = self.get_cycle_dir(cycle_num)
+
+        # Save synthesis markdown
+        (cycle_dir / "synthesis.md").write_text(synthesis)
+
+        # Add gaps
+        for gap_desc in new_gaps:
+            self.add_gap(gap_desc, priority="medium")
+
+        # Save cycle metadata
+        metadata = {
+            "cycle_num": cycle_num,
+            "synthesized": datetime.now().isoformat(),
+            "new_gaps_added": len(new_gaps),
+        }
+
+        # Merge with existing metadata if present
+        metadata_path = cycle_dir / "metadata.json"
+        if metadata_path.exists():
+            existing = json.loads(metadata_path.read_text())
+            existing.update(metadata)
+            metadata = existing
+
+        metadata_path.write_text(json.dumps(metadata, indent=2))
+
+    def add_gap(self, description: str, priority: str = "medium") -> int:
+        """
+        Add a single gap to active gaps.
+
+        Args:
+            description: Gap description
+            priority: Priority level (high, medium, low)
+
+        Returns:
+            ID of the newly created gap
+        """
+        gaps_path = self.root / "gaps" / "active.yaml"
+
+        with open(gaps_path) as f:
+            data = yaml.safe_load(f) or {"gaps": []}
+
+        # Get next ID
+        max_id = max([g.get("id", 0) for g in data["gaps"]], default=0)
+        new_id = max_id + 1
+
+        gap = {
+            "id": new_id,
+            "description": description,
+            "priority": priority,
+            "related_components": [],
+            "created": datetime.now().isoformat(),
+        }
+        data["gaps"].append(gap)
+
+        with open(gaps_path, 'w') as f:
+            yaml.dump(data, f, default_flow_style=False)
+
+        self.update_state(gaps_count=len(data["gaps"]))
+
+        return new_id
+
+    def resolve_gap(self, gap_id: int, reason: str):
+        """
+        Move a gap from active to resolved.
+
+        Args:
+            gap_id: ID of the gap to resolve
+            reason: How the gap was resolved
+        """
+        active_path = self.root / "gaps" / "active.yaml"
+        resolved_path = self.root / "gaps" / "resolved.yaml"
+
+        # Load active gaps
+        with open(active_path) as f:
+            active_data = yaml.safe_load(f) or {"gaps": []}
+
+        # Find and remove the gap
+        gap_to_resolve = None
+        remaining_gaps = []
+        for gap in active_data["gaps"]:
+            if gap.get("id") == gap_id:
+                gap_to_resolve = gap
+            else:
+                remaining_gaps.append(gap)
+
+        if gap_to_resolve is None:
+            raise ValueError(f"Gap #{gap_id} not found in active gaps")
+
+        # Add resolution info
+        gap_to_resolve["resolved"] = datetime.now().isoformat()
+        gap_to_resolve["resolution"] = reason
+
+        # Save updated active gaps
+        active_data["gaps"] = remaining_gaps
+        with open(active_path, 'w') as f:
+            yaml.dump(active_data, f, default_flow_style=False)
+
+        # Load and update resolved gaps
+        with open(resolved_path) as f:
+            resolved_data = yaml.safe_load(f) or {"resolved": []}
+
+        resolved_data["resolved"].append(gap_to_resolve)
+
+        with open(resolved_path, 'w') as f:
+            yaml.dump(resolved_data, f, default_flow_style=False)
+
+        self.update_state(gaps_count=len(remaining_gaps))
+
     def get_concept(self) -> str:
         """Get the concept README content."""
         concept_path = self.root / "concept" / "README.md"

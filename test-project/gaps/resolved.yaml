@@ -1,2 +1,16 @@
-# Resolved gaps
-resolved: []
+resolved:
+- created: '2026-01-04T01:23:33.492985'
+  description: Test gap for validation
+  id: 3
+  priority: high
+  related_components: []
+  resolution: This was a test gap
+  resolved: '2026-01-04T01:23:53.036212'
+- created: '2026-01-04T01:23:39.349922'
+  description: Need more empirical studies
+  id: 4
+  priority: medium
+  related_components: []
+  resolution: 'Addressed in cycle 5 - found empirical evidence: 14x crossover point,
+    Large Language Monkeys effect, difficulty-dependent frontiers'
+  resolved: '2026-01-04T10:05:48.345377'

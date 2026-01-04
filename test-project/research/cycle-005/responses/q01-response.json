@@ -1,0 +1,56 @@
+{
+  "text": "The literature on inference scaling laws, particularly \"Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters\" (\nScaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters\n), provides significant empirical evidence for the conditions under which test-time compute scaling outperforms equivalent training-time compute (parameter) scaling. The research identifies that the effectiveness of scaling inference compute is highly dependent on problem difficulty and the \"compute-optimal\" allocation of resources.\n\n1. Empirical Evidence and Performance Crossovers\n\nThe most notable empirical finding in \nScaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters\n (published 1 year ago) is that on tasks where a base model has a \"non-trivial\" success rate (not zero, but not yet perfect), test-time compute can be more effective than model size scaling.\n\nThe 14x Crossover: Snell et al. demonstrate that for a fixed FLOP budget, a smaller model using optimal test-time search (like Beam Search against a Process-based Verifier) can outperform a model with 14x more parameters. This suggests that for many reasoning tasks, current models are \"under-computed\" at inference time relative to their training investment.\nThe \"Large Language Monkeys\" Effect: Research in \"Large Language Monkeys: Scaling Inference Compute with Repeated Sampling\" (\nLarge Language Monkeys: Scaling Inference Compute with Repeated Sampling\n, published 1 year ago) shows that for coding tasks like HumanEval, generating \n100\n100 to \n1\n,\n000\n1,000 samples from a small model (e.g., Llama-7B) often achieves a higher \"pass@k\" than a single sample from a model \n10\n\u00d7\n10\u00d7 larger. This represents a clear crossover point where horizontal compute (sampling) becomes more efficient than vertical compute (parameter count).\nEfficiency Gains: The \"compute-optimal\" strategy proposed in \nScaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters\n achieves a 4x efficiency gain over a simple \"Best-of-N\" baseline by adaptively allocating compute based on prompt difficulty.\n2. The Compute-Optimal Frontier\n\nThe compute-optimal frontier for test-time scaling is defined by the tradeoff between the base model's inherent capability (System 1) and the amount of search/refinement applied (System 2).\n\nDifficulty-Dependent Scaling: A key takeaway from \nScaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters\n and \"Can 1B LLM Surpass 405B LLM? Rethinking Compute-Optimal Test-Time Scaling\" (\nCan 1B LLM Surpass 405B LLM? Rethinking Compute-Optimal Test-Time Scaling\n, published 1 year ago) is that the frontier is not static. For very easy problems, zero-shot (minimal test-time compute) is optimal. For very hard problems (where the base model success rate is \n0\n%\n0%), no amount of test-time sampling or verifier-based search can \"recover\" a correct answer if the model's policy cannot generate it in the first place.\nOptimal Allocation: The \"frontier\" occurs at \"medium-hard\" problems where the model can occasionally find the answer. In these regimes, the returns on inference compute follow a power law similar to training scaling laws, but with a different slope that favors inference for a significant range of total compute.\nThe \"Overthinking\" Constraint: Recent work like \"Do NOT Think That Much for 2+3=? On the Overthinking of o1-Like LLMs\" (\nDo NOT Think That Much for 2+3=? On the Overthinking of o1-Like LLMs\n, published 1 year ago) and \"Kinetics: Rethinking Test-Time Scaling Laws\" (\nKinetics: Rethinking Test-Time Scaling Laws\n, published 7 months ago) cautions that there is a point of diminishing returns. Scaling inference compute indefinitely can lead to \"overthinking,\" where the model drifts away from the correct solution or becomes overly verbose without increasing accuracy.\n3. Documented Crossover Conditions\n\nBased on the literature, the crossover where test-time scaling wins over training scaling generally happens when:\n\nThe base model is \"competent\" enough to solve the problem occasionally (Success Rate \n>\n0\n>0).\nThe compute budget for inference is large enough to allow for extensive search (e.g., \n\ud835\udc41\n>\n100\nN>100 samples) or deep verifier-based reasoning.\nThe task has a verifiable outcome (math, code), which allows search algorithms to rank candidates effectively.\n\nFor a comprehensive overview of how these scaling laws are evolving, you may also find \"A Survey of Test-Time Compute: From Intuitive Inference to Deliberate Reasoning\" (\nA Survey of Test-Time Compute: From Intuitive Inference to Deliberate Reasoning\n, published 1 year ago) and \"Harnessing the Reasoning Economy: A Survey of Efficient Reasoning for Large Language Models\" (\nHarnessing the Reasoning Economy: A Survey of Efficient Reasoning for Large Language Models\n, published 9 months ago) useful for mapping the broader landscape of \"System 2\" compute.",
+  "papers": [
+    {
+      "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
+      "url": "https://alphaxiv.org/abs/2408.03314",
+      "arxiv_id": "2408.03314"
+    },
+    {
+      "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
+      "url": "https://alphaxiv.org/abs/2408.03314",
+      "arxiv_id": "2408.03314"
+    },
+    {
+      "title": "Large Language Monkeys: Scaling Inference Compute with Repeated Sampling",
+      "url": "https://alphaxiv.org/abs/2407.21787",
+      "arxiv_id": "2407.21787"
+    },
+    {
+      "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
+      "url": "https://alphaxiv.org/abs/2408.03314",
+      "arxiv_id": "2408.03314"
+    },
+    {
+      "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
+      "url": "https://alphaxiv.org/abs/2408.03314",
+      "arxiv_id": "2408.03314"
+    },
+    {
+      "title": "Can 1B LLM Surpass 405B LLM? Rethinking Compute-Optimal Test-Time Scaling",
+      "url": "https://alphaxiv.org/abs/2502.06703",
+      "arxiv_id": "2502.06703"
+    },
+    {
+      "title": "Do NOT Think That Much for 2+3=? On the Overthinking of o1-Like LLMs",
+      "url": "https://alphaxiv.org/abs/2412.21187",
+      "arxiv_id": "2412.21187"
+    },
+    {
+      "title": "Kinetics: Rethinking Test-Time Scaling Laws",
+      "url": "https://alphaxiv.org/abs/2506.05333",
+      "arxiv_id": "2506.05333"
+    },
+    {
+      "title": "A Survey of Test-Time Compute: From Intuitive Inference to Deliberate Reasoning",
+      "url": "https://alphaxiv.org/abs/2501.02497",
+      "arxiv_id": "2501.02497"
+    },
+    {
+      "title": "Harnessing the Reasoning Economy: A Survey of Efficient Reasoning for Large Language Models",
+      "url": "https://alphaxiv.org/abs/2503.24377",
+      "arxiv_id": "2503.24377"
+    }
+  ],
+  "timestamp": "2026-01-04T10:04:57.146404"
+}

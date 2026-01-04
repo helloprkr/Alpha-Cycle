@@ -113,3 +113,19 @@ papers:
   arxiv_id: '2502.20339'
   title: 'Thinking Slow, Fast: Scaling Inference Compute with Distilled Reasoners'
   url: https://alphaxiv.org/abs/2502.20339
+- added: '2026-01-04T10:04:57.156161'
+  arxiv_id: '2502.06703'
+  title: Can 1B LLM Surpass 405B LLM? Rethinking Compute-Optimal Test-Time Scaling
+  url: https://alphaxiv.org/abs/2502.06703
+- added: '2026-01-04T10:04:57.156170'
+  arxiv_id: '2412.21187'
+  title: Do NOT Think That Much for 2+3=? On the Overthinking of o1-Like LLMs
+  url: https://alphaxiv.org/abs/2412.21187
+- added: '2026-01-04T10:04:57.156172'
+  arxiv_id: '2506.05333'
+  title: 'Kinetics: Rethinking Test-Time Scaling Laws'
+  url: https://alphaxiv.org/abs/2506.05333
+- added: '2026-01-04T10:04:57.156173'
+  arxiv_id: '2501.02497'
+  title: 'A Survey of Test-Time Compute: From Intuitive Inference to Deliberate Reasoning'
+  url: https://alphaxiv.org/abs/2501.02497

@@ -1,130 +1,275 @@
-# Research Verifier
+# Research Verifier (rv)
 
-Automate research verification loops between Claude and Alpharxiv.
+A CLI tool for automating research verification loops between Claude Code and Alpharxiv.
 
-## Overview
+## What It Does
 
-Research Verifier orchestrates systematic theory validation by:
+Research Verifier automates the tedious parts of systematic literature research:
 
-1. **Generating targeted questions** based on your hypothesis and gaps
-2. **Querying Alpharxiv** to find relevant papers and insights
-3. **Extracting and organizing** responses, papers, and citations
-4. **Tracking gaps** that need investigation
-5. **Versioning hypotheses** as evidence accumulates
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    RESEARCH VERIFICATION LOOP                   │
+│                                                                 │
+│   ┌──────────────┐         ┌──────────────┐                    │
+│   │  CLAUDE CODE │         │  ALPHARXIV   │                    │
+│   │  (Reasoning  │ ◀─────▶ │  (Literature │                    │
+│   │  + Synthesis)│   rv    │   Grounding) │                    │
+│   └──────────────┘         └──────────────┘                    │
+│          │                        │                            │
+│          ▼                        ▼                            │
+│   ┌────────────────────────────────────────┐                   │
+│   │      PROJECT DIRECTORY                  │                   │
+│   │  (Papers, Gaps, Hypotheses, Results)    │                   │
+│   └────────────────────────────────────────┘                   │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Philosophy:** Claude Code does the thinking. The `rv` tool does the plumbing.
+
+- **Claude Code** generates questions, synthesizes findings, identifies gaps
+- **rv** handles browser automation, file management, and state tracking
 
 ## Installation
 
 ```bash
-# Clone or copy the research-verifier directory
-cd research-verifier
+# Navigate to the project
+cd "/path/to/Alpha-Cycle 🔁"
 
-# Install in development mode
+# Create and activate virtual environment
+python3 -m venv .venv
+source .venv/bin/activate
+
+# Install the tool
 pip install -e .
 
-# Install Playwright browsers
+# Install browser automation
 playwright install chromium
 ```
 
 ## Quick Start
 
+### 1. Login to Alpharxiv (one-time)
+
 ```bash
-# 1. Create a new research project
-rv new my-theory
-
-# 2. Login to Alpharxiv (one-time, saves session)
 rv login
-
-# 3. Edit your concept and hypothesis
-cd my-theory
-# Edit concept/README.md with your theory
-# Edit hypotheses/v1/hypothesis.md with your hypothesis
-
-# 4. Run verification cycles
-rv run --cycles 2
-
-# 5. Check status anytime
-rv status
 ```
 
-## Commands
+A browser opens. Sign in with your Google account. Press Enter in terminal when done.
+
+### 2. Create a Research Project
+
+```bash
+rv new my-research-topic
+cd my-research-topic
+```
+
+### 3. Define Your Research
+
+Edit `concept/README.md` with your theory:
+
+```markdown
+# Concept
+
+## Core Theory
+
+Research on inference-time scaling in large language models.
+We explore how allocating compute during inference improves reasoning.
+
+## Scope
+
+- Methods for scaling inference compute
+- Trade-offs between training and inference compute
+```
+
+### 4. Run Verification Cycles
+
+**Option A: Automated Mode** (simpler, less adaptive)
+
+```bash
+rv run --cycles 3 --debug
+```
+
+**Option B: Claude Code Orchestrated** (recommended for complex research)
+
+```bash
+# Single query with Claude Code generating the question
+rv ask "What are the key papers on inference-time scaling from 2024-2025?"
+```
+
+## Commands Reference
 
 | Command | Description |
 |---------|-------------|
 | `rv new <name>` | Create a new research project |
-| `rv login` | Authenticate with Alpharxiv (opens browser) |
+| `rv login` | Authenticate with Alpharxiv (one-time) |
+| `rv login --debug` | Login with debug output for troubleshooting |
 | `rv ask "<question>"` | Send a single question to Alpharxiv |
-| `rv run --cycles N` | Run N verification cycles |
-| `rv run --phase expansive` | Force a specific phase |
+| `rv run --cycles N` | Run N automated verification cycles |
+| `rv run --phase expansive` | Force a specific phase type |
+| `rv run --debug` | Run with debug output |
 | `rv status` | Show current project status |
 | `rv resume` | Resume from last checkpoint |
 
 ## Project Structure
 
+After running cycles, your project contains:
+
 ```
-my-theory/
-├── config.yaml              # Project settings
+my-research-topic/
+├── .research-state.yaml      # Project state (cycles, papers, gaps)
+├── config.yaml               # Settings
+│
 ├── concept/
-│   └── README.md            # Your core theory
+│   └── README.md             # Your core theory/concept
+│
 ├── hypotheses/
 │   └── v1/
-│       ├── hypothesis.md    # Falsifiable hypothesis
-│       ├── components.yaml  # Decomposed claims
-│       └── status.yaml      # Validation status
+│       ├── hypothesis.md     # Falsifiable hypothesis
+│       ├── components.yaml   # Decomposed verifiable claims
+│       └── status.yaml       # Validation status
+│
 ├── research/
 │   └── cycle-001/
-│       ├── questions.md     # Questions asked
-│       ├── responses/       # Individual responses
-│       ├── synthesis.md     # Cycle synthesis
-│       └── metadata.json    # Cycle statistics
+│       ├── questions.md      # Questions sent to Alpharxiv
+│       ├── responses/
+│       │   ├── q01-response.md    # Response text + paper links
+│       │   └── q01-response.json  # Same, machine-readable
+│       ├── synthesis.md      # Cycle synthesis
+│       ├── metadata.json     # Statistics
+│       └── checkpoint.json   # Resume point
+│
 ├── gaps/
-│   ├── active.yaml          # Open research gaps
-│   └── resolved.yaml        # Closed gaps
+│   ├── active.yaml           # Open research gaps
+│   └── resolved.yaml         # Closed gaps
+│
 ├── resources/
-│   ├── papers.yaml          # Collected papers
-│   └── code.yaml            # Related code repos
+│   ├── papers.yaml           # All discovered papers (deduplicated)
+│   └── code.yaml             # Related repositories
+│
 ├── tests/
-│   └── registry.yaml        # Validation tests
-└── results/                 # Test results
+│   └── registry.yaml         # Validation tests
+│
+└── results/                  # Test results and analysis
 ```
 
-## Phases
+## Research Phases
 
-Research cycles rotate through three phases:
+Cycles rotate through three metacognitive phases:
 
-- **Expansive**: Divergent exploration - cast a wide net
-- **Integrative**: Convergent synthesis - find connections
-- **Synthesis**: Reflective assessment - clarify state
+| Phase | Focus | Question Style |
+|-------|-------|----------------|
+| **Expansive** | Cast wide net | "What work exists on X?" |
+| **Integrative** | Find connections | "How do findings A and B reconcile?" |
+| **Synthesis** | Assess state | "What is the consensus on X?" |
 
-## Usage with Claude Code
+## Using with Claude Code (Recommended)
 
-This tool is designed to be orchestrated by Claude Code:
+The most effective way to use this tool is with Claude Code orchestrating the research:
 
-1. **You** describe what you want to verify
-2. **Claude Code** generates targeted questions
-3. **rv** automates the Alpharxiv queries
-4. **Claude Code** synthesizes the results
-5. **Repeat** for multiple cycles
+### Workflow
+
+1. **You** describe what you want to verify to Claude Code
+2. **Claude Code** reads your concept and generates targeted questions
+3. **You** run `rv ask "question"` to query Alpharxiv
+4. **Claude Code** reads the response and synthesizes findings
+5. **Claude Code** identifies gaps and generates follow-up questions
+6. **Repeat** for multiple cycles
+
+### Example Session
+
+```bash
+# In Claude Code / Cursor terminal:
+
+# 1. Create project
+rv new inference-scaling
+cd inference-scaling
+
+# 2. Check status
+rv status
+
+# 3. Ask a targeted question (Claude Code generates this)
+rv ask "What are the key mechanisms that enable test-time compute to improve LLM performance? Include papers from 2024-2025."
+
+# 4. Claude Code reads response, then asks follow-up
+rv ask "Based on the inference scaling literature, what are documented failure cases where additional compute does NOT help?"
+
+# 5. Check collected papers
+cat resources/papers.yaml
+
+# 6. Check project status
+rv status
+```
 
 ## Configuration
 
 Edit `config.yaml` in your project:
 
 ```yaml
+project_name: my-research
 settings:
-  cycles_per_run: 20
-  checkpoint_interval: 5
-  alpharxiv_timeout: 120  # seconds
+  cycles_per_run: 20          # Max cycles per automated run
+  checkpoint_interval: 5      # Save checkpoint every N cycles
+  alpharxiv_timeout: 120      # Seconds to wait for response
 ```
 
 ## Troubleshooting
 
-**"Not logged in" errors**: Run `rv login` and complete Google OAuth
+### "command not found: rv"
 
-**Timeout errors**: Increase `alpharxiv_timeout` in config.yaml
+Activate the virtual environment:
+```bash
+source .venv/bin/activate
+```
 
-**Session expired**: Run `rv login` again to refresh
+### Login verification failed
 
-**Cycle interrupted**: Use `rv resume` to continue from checkpoint
+1. Make sure you're fully logged into Alpharxiv in the browser
+2. Wait until you see the chat interface before pressing Enter
+3. Try with debug mode: `rv login --debug`
+
+### Submission not working
+
+If questions aren't being submitted:
+1. Use debug mode: `rv run --cycles 1 --debug`
+2. Watch for "New message appeared" in output
+3. Check the screenshot at `~/.research-verifier/browser-profile/debug_screenshot.png`
+
+### Session expired
+
+Run `rv login` again to refresh the browser session.
+
+### Cycle interrupted
+
+Use `rv resume` to continue from the last checkpoint.
+
+### Response extraction issues
+
+If papers aren't being extracted:
+1. The Alpharxiv UI may have changed
+2. Check debug output for selector information
+3. Report issues with the debug log
+
+## How It Works
+
+1. **Browser Automation**: Uses Playwright with a persistent browser profile to maintain your Google login to Alpharxiv
+
+2. **Query Execution**: Types your question into Alpharxiv and waits for the response to complete
+
+3. **Response Extraction**: Parses the response text and extracts paper links (arxiv IDs, titles, URLs)
+
+4. **State Management**: Saves everything to your project directory with deduplication and checkpointing
+
+5. **Resume Support**: Every cycle creates a checkpoint, so interrupted runs can resume
+
+## Data Persistence
+
+| What | Where | When |
+|------|-------|------|
+| Questions | `research/cycle-NNN/questions.md` | Per cycle |
+| Responses | `research/cycle-NNN/responses/` | Per question |
+| Papers | `resources/papers.yaml` | Deduplicated after each cycle |
+| Gaps | `gaps/active.yaml` | Updated each cycle |
+| State | `.research-state.yaml` | After every operation |
 
 ## License
 
